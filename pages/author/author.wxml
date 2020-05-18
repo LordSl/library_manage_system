@@ -1,0 +1,37 @@
+<view wx:if="{{authorData}}">
+    <view class="author-image-container">
+        <image data-src="{{authorData.image}}" bindtap="previewimage" src="{{authorData.image}}"></image>
+    </view>
+
+    <view class="author-meta">
+        <view class="meta-info">
+            <text class="author-name">{{authorData.name}}</text>
+            <text class="author-country">{{authorData.country}}</text>
+        </view>
+    </view>
+
+    <view class="author-intro" wx:if="{{authorData.intro}}">
+        <view class="intro-header">
+          <text>作者简介</text>
+        </view>
+        <text class="intro-content">{{authorData.intro}}</text>
+    </view>
+
+    <view class="book-list" wx:if="{{authorData.totalBook > 0}}">
+    
+    <block wx:for="{{authorData.books}}" wx:key="id">
+        <view class="list-item" data-bid="{{item.id}}" bindtap="toDetailPage">
+            <view class="index-list-item">
+                <view class="cover">
+                    <image class="cover-img" src="{{item.image}}"></image>
+                 </view>
+                <view class="content">
+                    <view class="title">{{item.title}}</view>
+                    <text class="desc">{{item.rating.average == '0.0' ? '无' : item.rating.average}}/<block wx:for="{{item.author}}" wx:for-item="it" wx:key="*this">{{it}}/</block>{{item.pubdate}}</text>
+                </view>
+            </view>
+        </view>
+    </block>
+
+    </view>
+</view>

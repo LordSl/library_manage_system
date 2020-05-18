@@ -1,0 +1,58 @@
+page{
+    background: #eee;
+}
+
+.author-image-container{
+    background: #42bd56;
+    text-align: center;
+    padding: 50rpx 0;
+}
+
+.author-image-container image{
+    display: inline-block;
+    width: 300rpx;
+    height: 400rpx;
+}
+
+.author-meta{
+    position: relative;
+    padding: 20rpx;
+    overflow: hidden;
+}
+
+.author-meta .meta-info{
+    margin-right: 200rpx;
+}
+
+.meta-info text{
+    display: block;
+}
+
+.author-name{
+    font-weight: bold;
+    font-size: 40rpx;
+}
+
+.author-country{
+    padding-top: 10rpx;
+    color:#888;
+    font-size: 40rpx;
+}
+
+.author-intro{
+    margin-bottom: 40rpx;
+    padding: 20rpx;
+    background: #fafafa;
+}
+
+.author-intro .intro-header{
+    color: #888;
+    font-weight: bold;
+    padding: 40rpx 0;
+}
+
+.author-intro .intro-content{
+    font-size: 35rpx;
+    line-height: 2;
+    text-align: justify;
+}

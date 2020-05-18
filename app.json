@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/author/author",
     "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#42BD56",
-    "navigationBarTitleText": "豆瓣图书",
+    "navigationBarTitleText": "大作业",
     "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json"

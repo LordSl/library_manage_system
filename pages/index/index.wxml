@@ -15,7 +15,7 @@
   <view class="logo" wx:if="{{isInit}}">
     <image src="../../images/book.png" />
     <view>
-      <text>豆瓣图书</text>
+      <text>大作业</text>
     </view>
     <text style="font-size:30rpx;">书中自有黄金屋</text>
   </view>
