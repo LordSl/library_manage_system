@@ -39,5 +39,11 @@ Page({
     wx.previewImage({
       urls: [e.target.dataset.src]
     })
+  },
+  toAuthorDetailPage(e){
+    const aid = e.currentTarget.dataset.aid;//作者id[data-aid]
+    wx.navigateTo({
+      url: `../author/author?id=${aid}`
+    });
   }
 });
