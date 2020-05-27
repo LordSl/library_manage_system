@@ -1,0 +1,22 @@
+<!--pages/home/home.wxml--> 
+<text>👇 点击任一类别进入index</text>
+
+<scroll-view class="mysv" scroll-y="true" style="height:{{scrollHeight}}px" bindscrolltolower="scrollLowerEvent"> 
+ 
+<block wx:for="{{classifications}}" wx:key="index"> 
+  <view class="common-list"> 
+    <view class="list-item" bindtap="进入具体类别" id="{{index}}"> 
+      <view class="index-list-item"> 
+        <view class="cover"> 
+          <image class="cover-img" src="{{item.url}}"></image> 
+        </view>  
+        <view class="content"> 
+          <view class="title">{{item.name}}</view> 
+          <view class="desc">{{item.motto}}</view> 
+          <view class="desc">{{item.auther}}</view> 
+        </view> 
+      </view> 
+    </view> 
+  </view> 
+</block>  
+</scroll-view> 
