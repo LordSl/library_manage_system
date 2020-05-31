@@ -4,7 +4,7 @@
 const API_BASE = 'https://douban-api.uieee.com/v2/book';
 const API_BOOK_SEARCH = `${API_BASE}/search`;
 const API_BOOK_DETAIL = `${API_BASE}/:id`;
-
+const API_BOOK_CATEGORY='';
 /**
  * 网路请求
  */
@@ -54,7 +54,19 @@ function requestHasTag(tag) {
   return request(API_BOOK_SEARCH, { tag: tag, count: 1 });
 }
 
+/**
+ * 获取当前分类的图书信息
+ */
+function requestPageData(data){
+  /**return {"image": "https://sm.ms/image/WXKBdgOGe2SVY4m", "id": "0", "title": "关于我不是人这一件事","rating":{"average":0.3},"author":"Wei Zhu"};
+  */
+  return request(API_BOOK_SEARCH, data);
+  
+  }
+  
+
 module.exports = {
   requestSearchBook: requestSearchBook,
-  requestBookDetail: requestBookDetail
+  requestBookDetail: requestBookDetail,
+  requestPageData:requestPageData
 }
