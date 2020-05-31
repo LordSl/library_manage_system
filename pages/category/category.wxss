@@ -1,0 +1,16 @@
+/* pages/category/category.wxss */
+page {
+  background:#F2F2F2;
+}
+
+.header {
+  padding: 20rpx 30rpx;
+}
+
+.header text {
+  color: #9A32CD;
+  font-size: 35rpx;
+  display:flex;
+  justify-content: center;
+}
+
