@@ -37,24 +37,53 @@ Page({
     this.setData({
       classifications:tmp1,
       currentBookNum:tmp2
-    })//实际上是用wx.request获取数据，见下
-  // wx.request({
-  //   url: 'test.p', //仅为示例，并非真实的接口地址
-  //   data: {
-  //      x: '' ,
-  //      y: ''
-  //   },
-  //   header: {
-  //     'content-type': 'application/json' // 默认值
-  //   },
-  //   success: function(res) {
-  //     console.log("GET SUCCEESS!")
-  //     this.setData({
-  //       classifications:res
-  //     })
-  //   }
-  // })
+    })
   },
+
+// //使用本地springboot后端
+//  onLoad: function (options) {
+//     var that = this
+//     wx.request({
+//     url: 'http://localhost:8080/home/allCategory',
+//     method:"GET",
+//     data: {
+//     },
+//     header: {
+//       'content-type': 'application/json' //默认值
+//     },
+//     dataType:JSON,
+//     success: function(res){
+//       console.log("GET SUCCEESS!")
+//       var JSdata = JSON.parse(res.data).content
+//       console.log(JSdata)
+//       var tmp = new Array()
+//       var num = 0
+//       for(var i=0;i<JSdata.length;i++){
+//         num+= JSdata[i].booknums
+//         var s = ""
+//         for(var j=0;j<JSdata[i].famous_authers.length;j++){
+//           s += JSdata[i].famous_authers[j]
+//           if(j!=JSdata[i].famous_authers.length-1) s+=" "
+//           else s+="..."
+//         }
+//         tmp.push({
+//           name:JSdata[i].categoryName,
+//           // url:JSdata[i].url,
+//           id:JSdata[i].id,
+//           url:'../../images/book.png',
+//           motto:JSdata[i].motto,
+//           auther:s,
+//           heat:JSdata[i].heat,
+//         })
+//       }
+//       that.setData({
+//         classifications:tmp,
+//         currentBookNum:num
+//       })
+//     }
+//   })
+// },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

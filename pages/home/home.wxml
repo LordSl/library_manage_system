@@ -1,5 +1,5 @@
 <!--pages/home/home.wxml--> 
-<text>👇 点击任一类别进入index</text>
+<text>当前图书总数：{{currentBookNum}}</text>
 
 <scroll-view class="mysv" scroll-y="true" style="height:{{scrollHeight}}px" bindscrolltolower="scrollLowerEvent"> 
  
