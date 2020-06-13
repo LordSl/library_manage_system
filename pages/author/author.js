@@ -13,27 +13,31 @@ Page({
     });
   },
   onReady(){
+    var _this=this
     wx.showLoading({
       title: '加载中',
     });
-
-    api.requestAuthorDetail(
-      this.data.id,
-      {
-        fields:'image,name,country,intro,totalBook,books'
+    wx.request({
+      url: `http://wesource.ink:8080/book/`+_this.data.id+`/info`,
+      data: {},
+      header: {'content-type':'application/json'},
+      method: 'GET',
+      success: function(res){
+        console.log("GET AUTHOR SUCCESS!")
+        console.log(res.data)
+        _this.setData({
+          authorData:res.data.content
+        })
+      },
+      fail: function(){
+        console.log("GET AUTHOR FAIL!")
       }
-    ).then((data) => {
-      this.setData({
-        loadingHidden: true,
-        authorData:data
-      });
-      wx.hideLoading();
-    }).catch(_ => {
-      this.setData({
-        loadingHidden: true,
-      });
-      wx.hideLoading();
-      wx.navigateBack();
+    });
+  },
+  toDetailPage(e) {
+    const bid = e.currentTarget.dataset.id; //??id [data-id]
+    wx.navigateTo({
+      url: `../detail/detail?id=${bid}`
     });
   },
   previewImage(e){

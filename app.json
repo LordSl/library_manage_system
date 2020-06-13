@@ -4,8 +4,7 @@
     "pages/category/category",
     "pages/index/index",
     "pages/author/author",
-    "pages/detail/detail",
-    "pages/logs/logs"
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
