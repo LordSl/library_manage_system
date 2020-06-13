@@ -2,16 +2,16 @@
   <view class="header" >
     <text>{{categoryName}}</text>
   </view>
-  <view class="common-list" wx:if="{{totalRecord > 0}}">
-    <block wx:for="{{pageData}}" wx:key="id">
-      <view class="list-item" data-bid="{{item.id}}" bindtap="toDetailPage">
+  <view class="common-list" >
+    <block wx:for="{{pageData}}" wx:key="bookid">
+      <view class="list-item" data-id="{{item.bookid}}" bindtap="toDetailPage">
         <view class="index-list-item">
           <view class="cover">
             <image class="cover-img" src="{{item.image}}"></image>
           </view>
           <view class="content">
             <view class="title">{{item.title}}</view>
-            <text class="desc">评分:{{item.rating.average == '0.0' ? '无' : item.rating.average}}/<block wx:for="{{item.author}}" wx:for-item="it" wx:key="*this">{{it}}/</block>{{item.pubdate}}</text>
+            <text class="desc">评分:{{item.rating}}/<block class="{{item.authorName}}">{{item.authorName}}/</block>{{item.pubdate}}</text>
           </view>
         </view>
       </view>

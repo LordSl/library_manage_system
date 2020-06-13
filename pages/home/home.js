@@ -10,9 +10,9 @@ Page({
 
   进入具体类别: function(event) {
     var arr = this.data.classifications;
-    var i = parseInt(event.currentTarget.id)
+    var i = parseInt(event.currentTarget.id)+1
     console.log(i);
-    var s = arr[i].name
+    var s = arr[i-1].name
     console.log("用户点击了！"+s);
     //热度相关
     //not necessary
@@ -40,49 +40,50 @@ Page({
     })
   },
 
-// //使用本地springboot后端
-//  onLoad: function (options) {
-//     var that = this
-//     wx.request({
-//     url: 'http://localhost:8080/home/allCategory',
-//     method:"GET",
-//     data: {
-//     },
-//     header: {
-//       'content-type': 'application/json' //默认值
-//     },
-//     dataType:JSON,
-//     success: function(res){
-//       console.log("GET SUCCEESS!")
-//       var JSdata = JSON.parse(res.data).content
-//       console.log(JSdata)
-//       var tmp = new Array()
-//       var num = 0
-//       for(var i=0;i<JSdata.length;i++){
-//         num+= JSdata[i].booknums
-//         var s = ""
-//         for(var j=0;j<JSdata[i].famous_authers.length;j++){
-//           s += JSdata[i].famous_authers[j]
-//           if(j!=JSdata[i].famous_authers.length-1) s+=" "
-//           else s+="..."
-//         }
-//         tmp.push({
-//           name:JSdata[i].categoryName,
-//           // url:JSdata[i].url,
-//           id:JSdata[i].id,
-//           url:'../../images/book.png',
-//           motto:JSdata[i].motto,
-//           auther:s,
-//           heat:JSdata[i].heat,
-//         })
-//       }
-//       that.setData({
-//         classifications:tmp,
-//         currentBookNum:num
-//       })
-//     }
-//   })
-// },
+
+  /**onLoad: function (options) {
+     var that = this
+     wx.request({
+     url: 'http://wesource.ink:8080/home/allCategory',
+     method:"GET",
+     data: {
+     },
+     header: {
+       'content-type': 'application/json' //默认值
+     },
+     dataType:JSON,
+     success: function(res){
+       console.log("GET SUCCEESS!")
+       var JSdata = JSON.parse(res.data).content
+       console.log(JSdata)
+       var tmp = new Array()
+       var num = 0
+       for(var i=0;i<JSdata.length;i++){
+         num+= JSdata[i].booknums
+         var s = ""
+         for(var j=0;j<JSdata[i].famous_authers.length;j++){
+           s += JSdata[i].famous_authers[j]
+           if(j!=JSdata[i].famous_authers.length-1) s+=" "
+           else s+="..."
+         }
+         tmp.push({
+           name:JSdata[i].categoryName,
+           // url:JSdata[i].url,
+           id:JSdata[i].id,
+           url:'../../images/book.png',
+           motto:JSdata[i].motto,
+           auther:s,
+           heat:JSdata[i].heat,
+         })
+       }
+       that.setData({
+         classifications:tmp,
+         currentBookNum:num
+       })
+     }
+   })
+ },
+ **/
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -36,6 +36,7 @@ function request(url, data) {
 /**
  * 搜索图书
  */
+
 function requestSearchBook(data) {
   return request(API_BOOK_SEARCH, data);
 }
