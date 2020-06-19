@@ -13,4 +13,11 @@ page {
   display:flex;
   justify-content: center;
 }
+.common-list{
+  color: rgb(74, 68, 199);
+}
+.cover-img{
+  height:100px;
+  width:60px;
+}
 
