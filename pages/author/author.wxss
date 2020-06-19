@@ -16,12 +16,12 @@ page{
 
 .author-meta{
     position: relative;
-    padding: 20rpx;
     overflow: hidden;
 }
 
 .author-meta .meta-info{
     margin-right: 200rpx;
+    padding: 20rpx;
 }
 
 .meta-info text{
@@ -31,16 +31,16 @@ page{
 .author-name{
     font-weight: bold;
     font-size: 40rpx;
+    padding: 20rpx 0;
 }
 
 .author-country{
     padding-top: 10rpx;
     color:#888;
-    font-size: 40rpx;
+    font-size: 35rpx;
 }
 
 .author-intro{
-    margin-bottom: 40rpx;
     padding: 20rpx;
     background: #fafafa;
 }
@@ -48,11 +48,22 @@ page{
 .author-intro .intro-header{
     color: #888;
     font-weight: bold;
-    padding: 40rpx 0;
+    padding: 20rpx 0;
 }
 
 .author-intro .intro-content{
     font-size: 35rpx;
     line-height: 2;
     text-align: justify;
+}
+
+.book-list{
+    padding: 20rpx;
+}
+
+.book-list .author-books{
+    color: #888;
+    font-weight: bold;
+    line-height: 2;
+    padding: 40rpx 0;
 }
