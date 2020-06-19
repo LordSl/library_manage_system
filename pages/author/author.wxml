@@ -20,7 +20,7 @@
     <view class="book-list" wx:if="{{authorData.totalBook > 0}}">
     <text class="author-books">作者作品</text>
     <block wx:for="{{authorData.books}}" wx:key="id">
-        <view class="list-item" data-bid="{{item.id}}" bindtap="toDetailPage">
+        <view class="list-item" data-id="{{item.bookid}}" bindtap="toDetailPage">
             <view class="index-list-item">
                 <view class="cover">
                     <image class="cover-img" src="{{item.image}}"></image>
