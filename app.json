@@ -5,7 +5,6 @@
     "pages/index/index",
     "pages/author/author",
     "pages/detail/detail",
-    "pages/logs/logs",
     "pages/searchResult/searchResult"
   ],
   "window": {
@@ -29,13 +28,13 @@
       {
         "selectedIconPath": "images/收藏.png",
         "iconPath": "images/收藏.png",
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/home/home",
         "text": "收藏"
       },
       {
         "selectedIconPath": "images/用户.png",
         "iconPath": "images/用户.png",
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/home/home",
         "text": "用户"
       }
     ]
