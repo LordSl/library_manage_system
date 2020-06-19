@@ -3,12 +3,13 @@ const utils = require('../../utils/util.js');
 
 Page({
   data:{
-    id: null,
+    id: 1,
     loadingHidden: false,
     authorData: null
   },
   onLoad(option){
-    this.setData({
+    var _this=this
+    _this.setData({
       id: option.id
     });
   },
@@ -18,7 +19,7 @@ Page({
       title: '加载中',
     });
     wx.request({
-      url: `http://wesource.ink:8080/book/`+_this.data.id+`/info`,
+      url: `http://wesource.ink:8080/author/`+_this.data.id+`/info`,
       data: {},
       header: {'content-type':'application/json'},
       method: 'GET',
@@ -26,8 +27,10 @@ Page({
         console.log("GET AUTHOR SUCCESS!")
         console.log(res.data)
         _this.setData({
-          authorData:res.data.content
+          authorData:res.data.content,
+          loadingHidden:true
         })
+        wx.hideLoading();
       },
       fail: function(){
         console.log("GET AUTHOR FAIL!")

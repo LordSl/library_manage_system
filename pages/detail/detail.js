@@ -30,8 +30,10 @@ Page({
         console.log("GET SUCCEESS!")
         console.log(res.data)
         _this.setData({
-          bookData:res.data.content
+          bookData:res.data.content,
+          loadidngHidden: true
         })
+        wx.hideLoading();
       }
     })
 

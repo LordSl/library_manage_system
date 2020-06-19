@@ -6,7 +6,7 @@
   <view class="book-meta">
     <view class="meta-info">
       <text class="book-title">{{bookData.title}}</text>
-      <text class="other-meta">作者：<block class="{{bookData.authorName}}" data-aid="{{bookData.author_id}}" bindtap="toAuthorDetailPage">{{bookData.authorName}}</block></text>
+      <text class="other-meta" data-aid="{{bookData.author_id}}" bindtap="toAuthorDetailPage">作者：<block class="{{bookData.authorName}}">{{bookData.authorName}}</block></text>
       <text class="other-meta">出版社：{{bookData.publisher}}</text>
       <text class="other-meta">出版日期：{{bookData.pubdate}}</text>
     </view>
