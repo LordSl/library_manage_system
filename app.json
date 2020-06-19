@@ -4,7 +4,9 @@
     "pages/category/category",
     "pages/index/index",
     "pages/author/author",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/logs/logs",
+    "pages/searchResult/searchResult"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,5 +14,30 @@
     "navigationBarTitleText": "大作业",
     "navigationBarTextStyle": "white"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "images/分类.png",
+        "iconPath": "images/分类.png",
+        "pagePath": "pages/home/home",
+        "text": "分类"
+      },
+      {
+        "selectedIconPath": "images/收藏.png",
+        "iconPath": "images/收藏.png",
+        "pagePath": "pages/index/index",
+        "text": "收藏"
+      },
+      {
+        "selectedIconPath": "images/用户.png",
+        "iconPath": "images/用户.png",
+        "pagePath": "pages/logs/logs",
+        "text": "用户"
+      }
+    ]
+  }
 }

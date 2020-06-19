@@ -1,5 +1,8 @@
 <!--pages/home/home.wxml--> 
-<text>当前图书总数：{{currentBookNum}}</text>
+<view class="search-container">
+  <input type="text" bindinput="输入书名" placeholder="输入书名搜索"></input>
+  <icon bindtap="按书名搜索" type="search" size="20" />
+</view>
 
 <scroll-view class="mysv" scroll-y="true" style="height:{{scrollHeight}}px" bindscrolltolower="scrollLowerEvent"> 
  
@@ -15,8 +18,31 @@
           <view class="desc">{{item.motto}}</view> 
           <view class="desc">{{item.auther}}</view> 
         </view> 
+      </view>
+      <!-- 重复部分 -->
+      <view class="index-list-item"> 
+        <view class="cover"> 
+          <image class="cover-img" src="{{item.url}}"></image> 
+        </view>  
+        <view class="content"> 
+          <view class="title">{{item.name}}</view> 
+          <view class="desc">{{item.motto}}</view> 
+          <view class="desc">{{item.auther}}</view> 
+        </view> 
       </view> 
+      <view class="index-list-item"> 
+        <view class="cover"> 
+          <image class="cover-img" src="{{item.url}}"></image> 
+        </view>  
+        <view class="content"> 
+          <view class="title">{{item.name}}</view> 
+          <view class="desc">{{item.motto}}</view> 
+          <view class="desc">{{item.auther}}</view> 
+        </view> 
+      </view>
+      <!-- 重复部分 -->  
     </view> 
   </view> 
 </block>  
 </scroll-view> 
+<text class="sumary">当前图书总数：{{currentBookNum}}</text>

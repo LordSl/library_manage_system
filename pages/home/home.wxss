@@ -3,7 +3,15 @@ page {
   /* background: url("https://s1.ax1x.com/2020/05/19/YI5Rr6.jpg"); */ 
   font-family: 'microsoft yahei'; 
   height: 100%; 
-} 
+}
+
+.sumary{
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
  
 .mysv{ 
   background: url("https://s1.ax1x.com/2020/05/19/YI5Rr6.jpg"); 
@@ -62,20 +70,6 @@ page {
   overflow: hidden; 
 } 
  
- 
-.logo { 
-  text-align: center; 
-  padding-top: 50rpx; 
-  font-size: 40rpx; 
-  font-weight: bold; 
-  color: #aaa; 
-} 
- 
-.logo image { 
-  width: 250rpx; 
-  height: 250rpx; 
-} 
- 
 .search-container { 
   position: relative; 
   display: flex; 
@@ -104,29 +98,3 @@ page {
   margin-top: -20rpx; 
   right: 40rpx; 
 } 
- 
-/*header*/ 
- 
-.header { 
-  padding: 20rpx 30rpx; 
-} 
- 
-.header text { 
-  color: #a6a6a6; 
-  font-size: 35rpx; 
-} 
- 
-.goodbutton { 
-  margin-top: 30px; 
-  width: 80%; 
-  background-color: #fc7e43; 
-  color: white; 
-  border-radius: 98rpx; 
-  background: bg_red; 
-} 
- 
-.PictureButton{ 
-  width: 120px; 
-  height: 120px; 
-  margin:10px; 
-}

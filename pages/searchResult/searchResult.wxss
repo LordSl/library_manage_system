@@ -1,0 +1,40 @@
+page {
+  background:#F2F2F2;
+}
+
+.header text {
+  color: #9A32CD;
+  font-size: 35rpx;
+  display:flex;
+  justify-content: center;
+}
+
+.search-container { 
+  position: relative; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  background-color: #42bd56; 
+  color: #fff; 
+  height: 80rpx; 
+  padding: 10rpx 20rpx; 
+  z-index: 100; 
+} 
+
+.search-container input { 
+  background: #fff; 
+  color: #aaa; 
+  padding: 5px 80rpx 5px 10rpx; 
+  height: 40rpx; 
+  width: 100%; 
+  border-radius: 8rpx; 
+} 
+
+.search-container icon { 
+  position: absolute; 
+  z-index: 10; 
+  top: 50%; 
+  margin-top: -20rpx; 
+  right: 40rpx; 
+} 
+ 

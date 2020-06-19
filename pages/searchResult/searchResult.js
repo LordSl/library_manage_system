@@ -9,8 +9,36 @@ Page({
     //isInit: true, //是否第一次进入应用
     loadingMore: false, //是否正在加载更多
     pageData: [], //图书数据
-    categoryId: 1,
-    categoryName:"二次元"
+  },
+  
+  输入书名:function(event){
+    this.setData({
+      searchKey:event.detail.value
+    })
+    console.log(this.searchKey)
+  },
+  按书名搜索:function(event){
+    //获取搜索结果列表
+    // wx.request({
+    //   url: '',
+    //   method:"GET",
+    //   data: {
+    //   },
+    //   header: {
+    //     'content-type': 'application/json' //默认值
+    //   },
+    //   dataType:JSON,
+    //   success: function(res){
+    //   }
+    // })
+    var list = [
+      {authorName: "唐家三少",author_id: 2,bookid: 2,image: "https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png",pubdate: "2020-5-17",rating: 6,title: "斗罗大陆"},
+      {authorName: "唐家三少",author_id: 2,bookid: 3,image: "https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png",rating: 6.6,title: "斗罗大陆2"},
+    ]
+    console.log("点击后跳转到category页面")
+    wx.navigateTo({
+      url: '../searchResult/searchResult?list='+JSON.stringify(list),
+    })
   },
 
   onShow() {
@@ -25,39 +53,12 @@ Page({
   },
 
   onLoad(option) {
-    //var thisBlock=this;
-    var _this=this
+    console.log("搜索结果页")
+    var list = JSON.parse(option.list)
     this.setData({
-      categoryId: option.id,
-      categoryName:option.name,
-      //pageData:[],
-      loadingMore: true,
-      // pageData: [{"image": "http://p0.itc.cn/images01/20200520/a174fae3cb224d9abb25583597ef9cfa.jpeg", "id": "1", "title": "关于我不是人这一回事","rating":{"average":9.5},"author":{"1":"川原砾","2":"镰池和马"},"pubdate":"2000.5"},{"image": "http://img.mp.itc.cn/upload/20170715/c0019320eb544331b53c136c80ea24c1_th.jpg", "id": "2", "title": "关于你不是人这一回事","rating":{"average":0.0},"author":{"1":"川原乐","2":"镰也和马"},"pubdate":"2020.4"}]
-      
-
-    });
-
-    wx.request({
-    
-      url: 'http://wesource.ink:8080/book/bookCategory/'+_this.data.categoryId, 
-      data: {
-      },
-      header: {
-        'content-type': 'application/json' 
-      },
-      success: function(res) {
-        console.log("GET SUCCEESS!")
-        console.log(res)
-        _this.setData({
-          pageData:res.data.content,
-        })
-      }
+      pageData:list
     })
-    //this.setData({
-    //  categoryId: 1
-    //});
-    //getPageData.call(this);
-
+    
   },
 
   //下拉请求数据
