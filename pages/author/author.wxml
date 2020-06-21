@@ -18,7 +18,9 @@
     </view>
 
     <view class="book-list" wx:if="{{authorData.totalBook > 0}}">
-    <text class="author-books">作者作品</text>
+     <view class="author-books">
+          <text>作者作品</text>
+        </view>
     <block wx:for="{{authorData.books}}" wx:key="id">
         <view class="list-item" data-id="{{item.bookid}}" bindtap="toDetailPage">
             <view class="index-list-item">
