@@ -6,6 +6,7 @@
 </view>
 
 <!-- catchtap="onSwiperTap" -->
+<!-- 因为不校验域名所以好像没法用外链图片的样子... -->
 <swiper vertical="{{false}}" indicator-dots="true" autoplay="true" interval="5000">
   <swiper-item>
     <image src="/images/p1.png" data-postId="1"></image>
