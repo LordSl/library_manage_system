@@ -10,7 +10,12 @@ Page({
     loadingMore: false, //是否正在加载更多
     pageData: [], //图书数据
     categoryId: 1,
-    categoryName:"二次元"
+    categoryName:"二次元",
+
+    show:false,//控制下拉列表的显示隐藏，false隐藏、true显示
+    selectData:['原顺序','按评分','按作者','按出版日期'],//下拉列表的数据
+    index:0,//选择的下拉列表下标
+    sourceData:[],
   },
 
   onShow() {
@@ -23,7 +28,27 @@ Page({
       }
     })
   },
+  // 点击下拉显示框
+ selectTap(){
+  this.setData({
+   show: !this.data.show
+  });
+  },
+  // 点击下拉列表
+  optionTap(e){
+  let Index=e.currentTarget.dataset.index;//获取点击的下拉列表的下标
+  this.setData({
+   index:Index,
+   show:!this.data.show,
+   pageData:[],//可能修改过顺序的列表
+   
+  });
+  changeOrder.call(this);
+  
+  
+  //TODO 修改数据的顺序
 
+  },
   onLoad(option) {
     //var thisBlock=this;
     var _this=this
@@ -33,8 +58,6 @@ Page({
       //pageData:[],
       loadingMore: true,
       // pageData: [{"image": "http://p0.itc.cn/images01/20200520/a174fae3cb224d9abb25583597ef9cfa.jpeg", "id": "1", "title": "关于我不是人这一回事","rating":{"average":9.5},"author":{"1":"川原砾","2":"镰池和马"},"pubdate":"2000.5"},{"image": "http://img.mp.itc.cn/upload/20170715/c0019320eb544331b53c136c80ea24c1_th.jpg", "id": "2", "title": "关于你不是人这一回事","rating":{"average":0.0},"author":{"1":"川原乐","2":"镰也和马"},"pubdate":"2020.4"}]
-      
-
     });
 
     wx.request({
@@ -49,14 +72,11 @@ Page({
         console.log("GET SUCCEESS!")
         console.log(res)
         _this.setData({
+          sourceData:res.data.content,
           pageData:res.data.content,
         })
       }
     })
-    //this.setData({
-    //  categoryId: 1
-    //});
-    //getPageData.call(this);
 
   },
 
@@ -74,9 +94,67 @@ Page({
   }
 
 });
+function changeOrder(){
+  var _this=this
+  var i=this.data.index
+  switch(i){
+    case 0:{//原顺序
+      this.setData({
+        pageData:this.data.sourceData
+      })
+      break;
+    }
+    case 1:{//按评分
+      var temp=[];
+      let len=this.data.sourceData.length;
+      console.log(len)
+      for(let i=0;i<len;i++){
+        temp.push(this.data.sourceData[i])
+      }
+      temp.sort(sortByKey('rating'))
+      this.setData({
+        pageData:temp
+      })
+      break;
+    }
+    case 2:{//按作者
+      var temp=[];
+      let len=this.data.sourceData.length;
+      console.log(len)
+      for(let i=0;i<len;i++){
+        temp.push(this.data.sourceData[i])
+      }
+      temp.sort(sortByKey('author_id'))
+      this.setData({
+        pageData:temp
+      })
+      break;
+    }
+    case 3:{//按评分
+      var temp=[];
+      let len=this.data.sourceData.length;
+      console.log(len)
+      for(let i=0;i<len;i++){
+        temp.push(this.data.sourceData[i])
+      }
+      temp.sort(sortByKey('pubdate'))
+      this.setData({
+        pageData:temp
+      })
+      break;
+    }
 
+  }
+}
+function sortByKey( key) {
+  return function (a, b) {
+      let x = a[key]
+      let y = b[key]
+      return ((x < y) ? 1 : (x > y) ? -1 : 0)
+  }
+}
 function getPageData(){
-  //TODO
+  //TODO 作废,不通过api进行请求了
   var _this=this;
   const i = this.categoryId;
   const start = this.data.pageIndex;
@@ -109,28 +187,7 @@ function getPageData(){
   
  
 }
-  /**api.requestPageData({
-    q: "i",
-    start: start
-  }).then((data) => {
-    wx.hideLoading();
-    this.setData({
-      loadingMore: false,
-      pageData: this.data.pageData.concat([{"image": "http://p0.itc.cn/images01/20200520/a174fae3cb224d9abb25583597ef9cfa.jpeg", "id": "1", "title": "关于我不是人这一回事","rating":{"average":9.5},"author":{"1":"川原砾","2":"镰池和马"},"pubdate":"2000.5"},{"image": "http://img.mp.itc.cn/upload/20170715/c0019320eb544331b53c136c80ea24c1_th.jpg", "id": "2", "title": "关于你不是人这一回事","rating":{"average":0.0},"author":{"1":"川原乐","2":"镰也和马"},"pubdate":"2020.4"}]),
-      pageIndex: start + 1,
-      totalRecord: data.total
-    }
-  )}).catch(_ => {
-    this.setData({
-      loadingMore: false,
-      totalRecord: 0
-    });
-    
-    wx.hideLoading();
-    
-}
-  )}
-  **/
+  
 
   
  
