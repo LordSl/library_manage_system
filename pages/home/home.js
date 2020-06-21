@@ -38,7 +38,7 @@ Page({
       console.log("null")
     }
     else{
-      console.log("跳转到搜索结果页s")
+      console.log("跳转到搜索结果页")
     wx.navigateTo({
       url: '../searchResult/searchResult?list='+JSON.stringify(list),
     })}

@@ -1,8 +1,22 @@
-<!--pages/home/home.wxml--> 
+<!--pages/home/home.wxml-->
+
 <view class="search-container">
   <input type="text" bindinput="输入书名" placeholder="输入书名搜索"></input>
   <icon bindtap="按书名搜索" type="search" size="20" />
 </view>
+
+<!-- catchtap="onSwiperTap" -->
+<swiper vertical="{{false}}" indicator-dots="true" autoplay="true" interval="5000">
+  <swiper-item>
+    <image src="https://i.loli.net/2020/06/21/WS5us7HGk2cbDIa.png" data-postId="1"></image>
+  </swiper-item>    
+  <swiper-item>
+    <image src="https://i.loli.net/2020/06/21/7sFJX45Rb9pxNIe.png" data-postId="2"></image>
+  </swiper-item>
+  <swiper-item>
+    <image src="https://i.loli.net/2020/06/21/SNEZKzIurYjeg35.png" data-postId="3"></image>
+  </swiper-item>
+</swiper>    
 
 <scroll-view class="mysv" scroll-y="true" style="height:{{scrollHeight}}px" bindscrolltolower="scrollLowerEvent"> 
  
