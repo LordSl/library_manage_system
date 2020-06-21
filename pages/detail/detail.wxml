@@ -3,7 +3,7 @@
 		<image data-src="{{bookData.image}}" bindtap="previewImage" src="{{bookData.image}}"></image>
 	</view>
 
-	<view class="book-meta">
+	<view class="book-meta" >
 		<view class="meta-info">
 			<text class="book-title">{{bookData.title}}</text>
 			<text class="other-meta" data-aid="{{bookData.author_id}}" bindtap="toAuthorDetailPage">作者：<block class="{{bookData.authorName}}">{{bookData.authorName}}</block></text>

@@ -1,31 +1,68 @@
 /* pages/category/category.wxss */
 page {
-  background:#F2F2F2;
+  background:rgb(247, 250, 242);
 }
 
 .header {
   padding: 20rpx 30rpx;
 }
 
+.background {
+  width: 100%;
+  height: 100%;
+  position:fixed; 
+  background-size:100% 100%;
+  z-index: -1;
+}
+
 .header text {
-  color: #9A32CD;
-  font-size: 35rpx;
+  color: rgb(0, 0, 0);
+  font-size: 50rpx;
+  font-family:Fantasy;
+  font-weight:bold;
   display:flex;
   justify-content: center;
 }
 .common-list{
-  color: rgb(74, 68, 199);
+  color: rgb(0, 0, 0);
 }
+.title{
+  font-weight:bold;
+}
+.index-list-item{
+  background-color:rgb(251, 252, 252);
+}
+
+.ssss{
+  font-size:14px;
+  color:rgb(0, 0, 0);
+}
+
 .cover-img{
   height:100px;
   width:60px;
+  opacity: 1;
 }
+
+.divLine{
+
+  background: rgb(80, 80, 78);
+ 
+  width: 100%;
+ 
+  height: 2rpx;
+ 
+ }
+
 
 .select_box{
   background: #fff;
-  width: 80%;
-  margin: 30rpx auto;
+  width: 27%;
+  margin:5px 10px -40px ;
   position: relative;
+  z-index:1000;
+  opacity: 0.8;
+  float:right
  }
  .select{
   box-sizing: border-box;
@@ -59,7 +96,7 @@ page {
   height: 0;
   overflow-y: auto;
   border-top: 0;
-  background: rgb(230, 221, 221);
+  background: rgb(255, 255, 255);
   transition: height 0.3s;
   z-index:1000;
  }

@@ -3,14 +3,14 @@ page {
 }
 
 .cover-container {
-  background: #42bd56;
+  background: #dcdcdc;
   text-align: center;
-  padding: 50rpx 0;
+  padding: 20rpx 0;
 }
 
 .cover-container image {
   display: inline-block;
-  width: 300rpx;
+  width: 700rpx;
   height: 400rpx;
 }
 

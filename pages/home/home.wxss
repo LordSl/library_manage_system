@@ -75,15 +75,15 @@ page {
   display: flex; 
   justify-content: center; 
   align-items: center; 
-  background-color: #FFF; 
-  color: #FFF; 
+  background-color: rgb(255, 255, 255); 
+  color: rgb(255, 255, 255); 
   height: 80rpx; 
   padding: 5rpx 30rpx; 
   z-index: 100; 
 } 
  
 .search-container input { 
-  background: #fff; 
+  background: rgb(240, 238, 238); 
   color: #aaa; 
   padding: 5px 80rpx 5px 10rpx; 
   height: 40rpx; 
