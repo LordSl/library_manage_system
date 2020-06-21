@@ -27,7 +27,10 @@
                  </view>
                 <view class="content">
                     <view class="title">{{item.title}}</view>
-                    <text class="desc">{{item.rating.average == '0.0' ? '无' : item.rating.average}}/<block wx:for="{{item.author}}" wx:for-item="it" wx:key="*this">{{it}}/</block>{{item.pubdate}}</text>
+                    <view class="rate-block">
+                        <rate length="5" value="{{item.rating/2}}" disabled="true"></rate>
+                        <text class="item-rate">{{item.rating}}</text>
+                    </view>
                 </view>
             </view>
         </view>

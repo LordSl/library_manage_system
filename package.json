@@ -1,0 +1,19 @@
+{
+  "name": "bigassignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.weixin.qq.com/wx_wx4b1fc7fb0b32a229/BigAssignment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vant-weapp": "^0.5.28",
+    "wechat-miniprogram-rate": "^1.0.0"
+  }
+}
