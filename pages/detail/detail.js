@@ -15,8 +15,10 @@ Page({
   //   });
   // },
   onLoad(option) {
-    //const i=this.id
     var _this = this
+    _this.setData({
+      id: option.id,
+    });
     wx.showLoading({
       title: '加载中',
     });
