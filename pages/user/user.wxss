@@ -2,6 +2,40 @@
 /* .login{
 
 } */
+/* 复用作者作品列表 */
+.book-list{
+  padding: 20rpx;
+  background: #fafafa;
+}
+
+.book-list .author-books{
+  color: #888;
+  padding: 20rpx 0 40rpx 0;
+  font-weight: bold;
+}
+
+.book-list .list-item .index-list-item .content .title{
+  width: 200rpx;
+  font-weight: bold;
+  color: #616161;
+}
+
+.book-list .list-item .index-list-item{
+  padding: 15rpx 0 15rpx 40rpx;
+  margin-top: 20rpx;
+}
+
+.book-list .list-item .index-list-item .content .rate-block{
+  display: flex;
+  flex-direction: row;
+}
+
+.book-list .list-item .index-list-item .content .rate-block .item-rate{
+  padding: 8rpx 0 0 10rpx;
+  color:#ffcc00;
+}
+/* ------------------------------------------------------------ */
+/* 下面是登陆和注册的样式 */
 .background {
   width: 100%;
   height: 90%;

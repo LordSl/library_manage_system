@@ -2,11 +2,11 @@ App({
   onLaunch: function () {
   },
   globalData:{
-    hasLogin:false,
+    hasLogin:true,
     userid:1,
     userinfo:{
       nickname:"weikaixuan",
-      username:'13333217870',
+      account:'13333217870',
       password:'123456',
       studentnumb:'181250151'
     },

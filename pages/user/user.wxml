@@ -1,5 +1,30 @@
 <!--pages/user/user.wxml-->
 <view class='login' wx:if='{{islogin}}'>
+	<view>
+		<!-- 用户信息展示：：用一个有阴影的边框框住！！ -->
+	</view>
+	<view class="author-books">
+		<text>作者作品</text>
+	</view>
+	<!-- todo给图书列表多点细节和显示项！！ -->
+	<view class="book-list" wx:if="{{authorData.totalBook > 0}}">
+		<block wx:for="{{authorData.books}}" wx:key="id">
+			<view class="list-item" data-id="{{item.bookid}}" bindtap="toDetailPage">
+				<view class="index-list-item">
+					<view class="cover">
+						<image class="cover-img" src="{{item.image}}"></image>
+					</view>
+					<view class="content">
+						<view class="title">{{item.title}}</view>
+						<view class="rate-block">
+							<rate length="5" value="{{item.rating/2}}" disabled="true"></rate>
+							<text class="item-rate">{{item.rating}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
 	<text>登陆了</text>
 </view>
 <view class="userinfo" wx:else>
@@ -11,7 +36,7 @@
 				<view class="container">
 					<view class="usernamestyle">
 						<view class="title">账号：</view>
-						<input class="usernameinput" name="username" placeholder="请输入账号" />
+						<input class="usernameinput" name="account" placeholder="请输入账号" />
 					</view>
 					<view class="passwordstyle">
 						<text class="title">密码：</text>
@@ -26,23 +51,26 @@
 		<swiper-item>
 			<form catchsubmit="registerSubmit" catchreset="formReset">
 				<view class="container">
-				<view class="usernamestyle">
+					<!-- <view class="usernamestyle">
 						<view class="title">昵称：</view>
 						<input class="usernameinput" name="nickname" placeholder="请输入昵称" />
 					</view>
 						<view class="usernamestyle">
 						<view class="title">学号：</view>
 						<input class="usernameinput" name="studentnumb" placeholder="请输入学号" />
-					</view>
+					</view> -->
 					<view class="usernamestyle">
 						<view class="title">账号：</view>
-						<input class="usernameinput" name="username" placeholder="请输入账号" />
+						<input class="usernameinput" name="account" placeholder="请输入账号" />
 					</view>
 					<view class="passwordstyle">
 						<text class="title">密码：</text>
 						<input class="passwordinput" password='true' name="password" placeholder="请输入密码" />
 					</view>
-					
+					<view class="passwordstyle">
+						<text class="title">确认：</text>
+						<input class="passwordinput" password='true' placeholder="重新输入密码" />
+					</view>
 					<button class="submitbut" type="primary" size='mini' formType="submit">注册</button>
 					<button class="resetbut" size='mini' formType="reset">重置</button>
 				</view>

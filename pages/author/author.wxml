@@ -1,42 +1,42 @@
 <view wx:if="{{authorData}}">
-    <view class="author-image-container">
-        <image data-src="{{authorData.image}}" bindtap="previewimage" src="{{authorData.image}}"></image>
-    </view>
+	<view class="author-image-container">
+		<image data-src="{{authorData.image}}" bindtap="previewimage" src="{{authorData.image}}"></image>
+	</view>
 
-    <view class="author-meta">
-        <view class="meta-info">
-            <text class="author-name">{{authorData.name}}</text>
-            <text class="author-country">{{authorData.country}}</text>
-        </view>
-    </view>
+	<view class="author-meta">
+		<view class="meta-info">
+			<text class="author-name">{{authorData.name}}</text>
+			<text class="author-country">{{authorData.country}}</text>
+		</view>
+	</view>
 
-    <view class="author-intro" wx:if="{{authorData.intro}}">
-        <view class="intro-header">
-          <text>作者简介</text>
-        </view>
-        <text class="intro-content">{{authorData.intro}}</text>
-    </view>
+	<view class="author-intro" wx:if="{{authorData.intro}}">
+		<view class="intro-header">
+			<text>作者简介</text>
+		</view>
+		<text class="intro-content">{{authorData.intro}}</text>
+	</view>
 
-    <view class="book-list" wx:if="{{authorData.totalBook > 0}}">
-     <view class="author-books">
-          <text>作者作品</text>
-        </view>
-    <block wx:for="{{authorData.books}}" wx:key="id">
-        <view class="list-item" data-id="{{item.bookid}}" bindtap="toDetailPage">
-            <view class="index-list-item">
-                <view class="cover">
-                    <image class="cover-img" src="{{item.image}}"></image>
-                 </view>
-                <view class="content">
-                    <view class="title">{{item.title}}</view>
-                    <view class="rate-block">
-                        <rate length="5" value="{{item.rating/2}}" disabled="true"></rate>
-                        <text class="item-rate">{{item.rating}}</text>
-                    </view>
-                </view>
-            </view>
-        </view>
-    </block>
+	<view class="book-list" wx:if="{{authorData.totalBook > 0}}">
+		<view class="author-books">
+			<text>作者作品</text>
+		</view>
+		<block wx:for="{{authorData.books}}" wx:key="id">
+			<view class="list-item" data-id="{{item.bookid}}" bindtap="toDetailPage">
+				<view class="index-list-item">
+					<view class="cover">
+						<image class="cover-img" src="{{item.image}}"></image>
+					</view>
+					<view class="content">
+						<view class="title">{{item.title}}</view>
+						<view class="rate-block">
+							<rate length="5" value="{{item.rating/2}}" disabled="true"></rate>
+							<text class="item-rate">{{item.rating}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</block>
 
-    </view>
+	</view>
 </view>
