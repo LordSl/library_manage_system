@@ -1,0 +1,8 @@
+<!--pages/user/user.wxml-->
+<view class='login' wx:if='{{islogin}}'>
+  <text>登陆了</text>
+</view>
+<view class="userinfo" wx:else>
+	<image class='background' src="/images/sophie.jpg" mode="aspectFill" style="opacity:0.60"></image>
+	<text>没登录</text>
+</view>
