@@ -9,6 +9,8 @@ Page({
    */
   data: {
     islogin:false,
+    userinfo:{},
+
   },
 
   /**
@@ -22,14 +24,40 @@ Page({
      islogin: globalData.hasLogin
     });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  loginSubmit(e) {
+    console.log('form发生了登陆事件，携带数据为：', e.detail.value)
+    var _this = this
+    wx.request({
+      url: `http://wesource.ink:8080/user/login`,
+      data: {
+        username: e.detail.value.username,
+        password: e.detail.value.password
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        // 切记目前所有的返回数据绑定都是有问题的。。因为不知道咋绑定。。
+        app.globalData.islogin = true;
+        app.globalData.userinfo= res.data.content;
+        _this.setData({
+          userinfo: res.data.content,
+          islogin:true
+        })
+      }
+    })
+  },
+  registerSubmit(e){
+    console.log('form发生了注册事件，携带数据为：', e.detail.value)
+    var _this = this
   },
 
+  formReset(e) {
+    console.log('form发生了reset事件，携带数据为：', e.detail.value)
+    this.setData({
+      chosen: ''
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -37,38 +65,4 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

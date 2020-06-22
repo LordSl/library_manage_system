@@ -4,8 +4,66 @@
 } */
 .background {
   width: 100%;
-  height: 100%;
+  height: 90%;
   position:fixed; 
   background-size:100% 100%;
   z-index: -1;
+}
+.container{
+  /* margin-top: 200rpx; */
+  padding-top: 510rpx;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.usernamestyle{
+  display:flex;
+  flex-direction: row;
+  margin-left: 30rpx;
+}
+.passwordstyle{
+  display:flex;
+  flex-direction: row;
+  margin-left: 30rpx;
+}
+.title{
+  width: 110rpx;
+  font-size: 35rpx;
+  font-weight: bold;
+  color: #666;
+  vertical-align: middle;
+}
+.usernameinput{
+  width: 200rpx;
+  font-size: 35rpx;
+  vertical-align: middle;
+}
+.passwordinput{
+  font-size: 35rpx;
+  width: 200rpx;
+  vertical-align: middle;
+}
+ .submitbut{
+   margin-top: 20rpx;
+  width: 310rpx;
+  font-weight: bold;
+}
+.resetbut{
+  margin-top: 20rpx;
+  width: 310rpx;
+  font-weight: bold;
+  color: #555;
+}
+.tips{
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-top: 8px;
+  color: #999;
+  vertical-align: middle;
+}
+swiper{
+  width:100%;
+  height:1000rpx;
+  /* padding-top: 10rpx; */
+  padding-bottom: 15rpx;
 }

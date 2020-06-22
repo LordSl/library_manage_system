@@ -1,8 +1,54 @@
 <!--pages/user/user.wxml-->
 <view class='login' wx:if='{{islogin}}'>
-  <text>登陆了</text>
+	<text>登陆了</text>
 </view>
 <view class="userinfo" wx:else>
-	<image class='background' src="/images/sophie.jpg" mode="aspectFill" style="opacity:0.60"></image>
-	<text>没登录</text>
+	<image class='background' src="/images/loginbac.jpg" mode="aspectFill" style="opacity:0.60"></image>
+
+	<swiper vertical="{{false}}" indicator-dots="true">
+		<swiper-item>
+			<form catchsubmit="loginSubmit" catchreset="formReset">
+				<view class="container">
+					<view class="usernamestyle">
+						<view class="title">账号：</view>
+						<input class="usernameinput" name="username" placeholder="请输入账号" />
+					</view>
+					<view class="passwordstyle">
+						<text class="title">密码：</text>
+						<input class="passwordinput" password='true' name="password" placeholder="请输入密码" />
+					</view>
+					<button class="submitbut" type="warn" size='mini' formType="submit">登陆</button>
+					<button class="resetbut" size='mini' formType="reset">重置</button>
+					<text class="tips">  左滑注册</text>
+				</view>
+			</form>
+		</swiper-item>
+		<swiper-item>
+			<form catchsubmit="registerSubmit" catchreset="formReset">
+				<view class="container">
+				<view class="usernamestyle">
+						<view class="title">昵称：</view>
+						<input class="usernameinput" name="nickname" placeholder="请输入昵称" />
+					</view>
+						<view class="usernamestyle">
+						<view class="title">学号：</view>
+						<input class="usernameinput" name="studentnumb" placeholder="请输入学号" />
+					</view>
+					<view class="usernamestyle">
+						<view class="title">账号：</view>
+						<input class="usernameinput" name="username" placeholder="请输入账号" />
+					</view>
+					<view class="passwordstyle">
+						<text class="title">密码：</text>
+						<input class="passwordinput" password='true' name="password" placeholder="请输入密码" />
+					</view>
+					
+					<button class="submitbut" type="primary" size='mini' formType="submit">注册</button>
+					<button class="resetbut" size='mini' formType="reset">重置</button>
+				</view>
+			</form>
+		</swiper-item>
+	</swiper>
+
+
 </view>
