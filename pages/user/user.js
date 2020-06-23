@@ -8,33 +8,75 @@ Page({
    * 页面的初始数据
    */
   data: {
-    islogin:false,
-    userinfo:{},
+    islogin: false,
+    userinfo: {
+      nickname: "weikaixuan",
+      account: '13333217870',
+      password: '123456',
+      studentnumb: '181250151'
+    },
     // ......下面是复用一下作者的
     id: 2,
     authorData: null,
+    modify: false,
   },
   //复用一下作者的
-  onReady(){
-    var _this=this
+  modifystart() {
+    this.setData({
+      modify: true,
+    })
+  },
+  modifySubmit(e){
+    var _this = this
+    wx.request({
+      url: `http://wesource.ink:8080/user/modify`,
+      data: {
+        account:  _this.data.userinfo.account,
+        password: e.detail.value.password,
+        studentnumb:e.detail.value.studentnumb,
+        nickname:e.detail.value.nickname
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log("GET AUTHOR SUCCESS!")
+        console.log(res.data)
+        app.globalData.userinfo = res.data.content;
+        _this.setData({
+          userinfo: res.data.content,
+          modify: false,
+        })
+        wx.hideLoading();
+      },
+      fail: function () {
+        console.log("GET AUTHOR FAIL!")
+      }
+    });
+  },
+  onReady() {
+    var _this = this
     wx.showLoading({
       title: '加载中',
     });
     wx.request({
-      url: `http://wesource.ink:8080/author/`+_this.data.id+`/info`,
+      url: `http://wesource.ink:8080/author/` + _this.data.id + `/info`,
       data: {},
-      header: {'content-type':'application/json'},
+      header: {
+        'content-type': 'application/json'
+      },
       method: 'GET',
-      success: function(res){
+      success: function (res) {
         console.log("GET AUTHOR SUCCESS!")
         console.log(res.data)
         _this.setData({
-          authorData:res.data.content,
-          loadingHidden:true
+          authorData: res.data.content,
+          loadingHidden: true
         })
         wx.hideLoading();
       },
-      fail: function(){
+      fail: function () {
         console.log("GET AUTHOR FAIL!")
       }
     });
@@ -48,7 +90,7 @@ Page({
     var globalData = app.globalData;
     console.log('xianshi')
     this.setData({
-     islogin: globalData.hasLogin
+      islogin: globalData.hasLogin
     });
   },
   loginSubmit(e) {
@@ -66,15 +108,15 @@ Page({
       success: function (res) {
         // 切记目前所有的返回数据绑定都是有问题的。。因为不知道咋绑定。。
         app.globalData.islogin = true;
-        app.globalData.userinfo= res.data.content;
+        app.globalData.userinfo = res.data.content;
         _this.setData({
           userinfo: res.data.content,
-          islogin:true
+          islogin: true
         })
       }
     })
   },
-  registerSubmit(e){
+  registerSubmit(e) {
     console.log('form发生了注册事件，携带数据为：', e.detail.value)
     var _this = this
     var _this = this

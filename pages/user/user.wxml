@@ -1,8 +1,42 @@
 <!--pages/user/user.wxml-->
 <view class='login' wx:if='{{islogin}}'>
-	<view>
-		<!-- 用户信息展示：：用一个有阴影的边框框住！！ -->
-	</view>
+	<view class="holder"></view>
+	<form catchsubmit="modifySubmit" catchreset="modifystart">
+		<view class="userinfocontainer">
+		<view class="holder"></view>
+			<view class="simplelinestyle">
+				<view class="infotitle">账号</view>
+				<text class="infodisplay">{{userinfo.account}}</text>
+				<!-- <input placeholder-class="myplaceholder" class="usernameinput" name="account" placeholder="请输入账号" /> -->
+			</view>
+			<view class="simplelinestyle">
+				<text wx:if='{{modify}}' class="infotitle">密码</text>
+				<input wx:if='{{modify}}' class="passwordinput" placeholder-class="myplaceholder" password='true' name="password" placeholder="请输入密码" />
+			</view>
+			<view wx:if='{{modify}}' class="simplelinestyle">
+				<text class="infotitle">确认</text>
+				<input class="passwordinput" placeholder-class="myplaceholder" password='true' name="password" placeholder="请输入密码" />
+			</view>
+			<view class="simplelinestyle">
+				<view class="infotitle">昵称</view>
+				<input wx:if='{{modify}}' placeholder-class="myplaceholder" class="usernameinput" name="nickname" placeholder="请输入昵称" />
+				<text wx:else  class="infodisplay">{{userinfo.nickname}}</text>
+			</view>
+			<view class="simplelinestyle">
+				<view class="infotitle">学号</view>
+
+				<input wx:if='{{modify}}' placeholder-class="myplaceholder" class="usernameinput" name="studentnumb" placeholder="请输入学号" />
+				<text wx:else class="infodisplay">{{userinfo.studentnumb}}</text>
+			</view>
+			<button wx:if='{{modify}}' class="modifysubmintbut"   size='mini' formType="submit">提交</button>
+			<button wx:else class="modifybut" size='mini'type="warn"  formType="reset">修改</button>
+		</view>
+	</form>
+
+	<text></text>
+
+	<!-- 用户信息展示：：用一个有阴影的边框框住！！ -->
+
 	<view class="author-books">
 		<text>作者作品</text>
 	</view>
@@ -28,19 +62,20 @@
 	<text>登陆了</text>
 </view>
 <view class="userinfo" wx:else>
-	<image class='background' src="/images/loginbac.jpg" mode="aspectFill" style="opacity:0.60"></image>
+	<image class='background' src="/images/loginbac.png" mode="aspectFill" style="opacity:0.60"></image>
 
 	<swiper vertical="{{false}}" indicator-dots="true">
 		<swiper-item>
 			<form catchsubmit="loginSubmit" catchreset="formReset">
 				<view class="container">
+					<text class="topfooter">—— 登陆即可同步收藏记录 ——</text>
 					<view class="usernamestyle">
 						<view class="title">账号：</view>
-						<input class="usernameinput" name="account" placeholder="请输入账号" />
+						<input placeholder-class="myplaceholder" class="usernameinput" name="account" placeholder="请输入账号" />
 					</view>
 					<view class="passwordstyle">
 						<text class="title">密码：</text>
-						<input class="passwordinput" password='true' name="password" placeholder="请输入密码" />
+						<input class="passwordinput" placeholder-class="myplaceholder" password='true' name="password" placeholder="请输入密码" />
 					</view>
 					<button class="submitbut" type="warn" size='mini' formType="submit">登陆</button>
 					<button class="resetbut" size='mini' formType="reset">重置</button>
@@ -61,15 +96,15 @@
 					</view> -->
 					<view class="usernamestyle">
 						<view class="title">账号：</view>
-						<input class="usernameinput" name="account" placeholder="请输入账号" />
+						<input class="usernameinput" placeholder-class="myplaceholder" name="account" placeholder="请输入账号" />
 					</view>
 					<view class="passwordstyle">
 						<text class="title">密码：</text>
-						<input class="passwordinput" password='true' name="password" placeholder="请输入密码" />
+						<input class="passwordinput" placeholder-class="myplaceholder" password='true' name="password" placeholder="请输入密码" />
 					</view>
 					<view class="passwordstyle">
 						<text class="title">确认：</text>
-						<input class="passwordinput" password='true' placeholder="重新输入密码" />
+						<input class="passwordinput" placeholder-class="myplaceholder" password='true' placeholder="重新输入密码" />
 					</view>
 					<button class="submitbut" type="primary" size='mini' formType="submit">注册</button>
 					<button class="resetbut" size='mini' formType="reset">重置</button>

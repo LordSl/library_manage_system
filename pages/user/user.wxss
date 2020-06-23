@@ -3,101 +3,188 @@
 
 } */
 /* 复用作者作品列表 */
-.book-list{
+.book-list {
   padding: 20rpx;
   background: #fafafa;
 }
 
-.book-list .author-books{
+.book-list .author-books {
   color: #888;
   padding: 20rpx 0 40rpx 0;
   font-weight: bold;
 }
 
-.book-list .list-item .index-list-item .content .title{
+.book-list .list-item .index-list-item .content .title {
   width: 200rpx;
   font-weight: bold;
   color: #616161;
 }
 
-.book-list .list-item .index-list-item{
+.book-list .list-item .index-list-item {
   padding: 15rpx 0 15rpx 40rpx;
   margin-top: 20rpx;
 }
 
-.book-list .list-item .index-list-item .content .rate-block{
+.book-list .list-item .index-list-item .content .rate-block {
   display: flex;
   flex-direction: row;
 }
 
-.book-list .list-item .index-list-item .content .rate-block .item-rate{
+.book-list .list-item .index-list-item .content .rate-block .item-rate {
   padding: 8rpx 0 0 10rpx;
-  color:#ffcc00;
+  color: #ffcc00;
 }
-/* ------------------------------------------------------------ */
+
+/* --------------------以下是登陆以后的样式---------------------------------------- */
+.login{
+  background: #fafafa;
+}
+.holder{
+  height: 30rpx;
+}
+.userinfocontainer {
+  margin-left: 60rpx;
+  padding-left: 0rpx;
+  margin-right: 60rpx;
+  margin-bottom: 20rpx;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  border-radius:20rpx;
+  box-shadow:0 5px 7px   #d9d9d9;
+}
+.simplelinestyle{
+  display: flex;
+  flex-direction: row;
+  margin-left: 160rpx;
+}
+.infotitle{
+  letter-spacing:3rpx;
+  width: 100rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #595757;
+  vertical-align: middle;
+}
+.infodisplay{
+  letter-spacing:3rpx;
+  color: #999;
+  font-size: 30rpx;
+  vertical-align: middle;
+}
+.modifybut{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  width: 300rpx;
+  float:right;
+  font-weight: bold;
+  color: #555;
+  letter-spacing:6rpx;
+}
+.modifysubmintbut{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  width: 300rpx;
+  float:right;
+  font-weight: bold;
+  letter-spacing:6rpx;
+  color: #555;
+}
+
+/* ============================== */
 /* 下面是登陆和注册的样式 */
+.userinfo {
+  height: 1400rpx;
+}
+
 .background {
   width: 100%;
-  height: 90%;
-  position:fixed; 
-  background-size:100% 100%;
+  height: 100%;
+  position: fixed;
+  background-size: 100% 100%;
   z-index: -1;
 }
-.container{
+
+.container {
   /* margin-top: 200rpx; */
-  padding-top: 510rpx;
-  display:flex;
+  padding-top: 540rpx;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
-.usernamestyle{
-  display:flex;
+
+.usernamestyle {
+  display: flex;
   flex-direction: row;
   margin-left: 30rpx;
 }
-.passwordstyle{
-  display:flex;
+
+.passwordstyle {
+  display: flex;
   flex-direction: row;
   margin-left: 30rpx;
 }
-.title{
+
+.topfooter {
+  font-size: 20rpx;
+  color: #999;
+  vertical-align: middle;
+  margin-bottom: 20rpx;
+}
+
+.title {
   width: 110rpx;
   font-size: 35rpx;
   font-weight: bold;
-  color: #666;
+  color: #595757;
   vertical-align: middle;
 }
-.usernameinput{
+
+.usernameinput {
   width: 200rpx;
   font-size: 35rpx;
   vertical-align: middle;
 }
-.passwordinput{
+
+.passwordinput {
   font-size: 35rpx;
   width: 200rpx;
   vertical-align: middle;
 }
- .submitbut{
-   margin-top: 20rpx;
+
+.myplaceholder {
+  font-size: 28rpx;
+  vertical-align: middle;
+}
+
+.submitbut {
+  margin-top: 20rpx;
   width: 310rpx;
   font-weight: bold;
+  letter-spacing:6rpx;
 }
-.resetbut{
+
+.resetbut {
   margin-top: 20rpx;
   width: 310rpx;
   font-weight: bold;
   color: #555;
+  letter-spacing:6rpx;
 }
-.tips{
+
+.tips {
   font-size: 28rpx;
   font-weight: bold;
   margin-top: 8px;
   color: #999;
   vertical-align: middle;
 }
-swiper{
-  width:100%;
-  height:1000rpx;
+
+swiper {
+  width: 100%;
+  height: 950rpx;
   /* padding-top: 10rpx; */
   padding-bottom: 15rpx;
 }
