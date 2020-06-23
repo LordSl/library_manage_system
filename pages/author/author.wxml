@@ -1,6 +1,6 @@
 <view wx:if="{{authorData}}">
 	<view class="author-image-container">
-		<image data-src="{{authorData.image}}" bindtap="previewimage" src="{{authorData.image}}"></image>
+		<image data-src="{{authorData.image}}" bindtap="previewimage" src="{{authorData.image}}" mode='widthFix'></image>
 	</view>
 
 	<view class="author-meta">
