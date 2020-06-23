@@ -3,6 +3,8 @@ const api = require('../../utils/api.js');
 
 Page({
   data: {
+    mode:"category",//"category"正常模式 "searchResult"显示搜索结果
+    searchResult:"",
     scrollHeight: 200, //scroll-view高度
     pageIndex: 0, //页码
     //totalRecord: 1, //图书总数
@@ -50,6 +52,9 @@ Page({
 
   },
   onLoad(option) {
+    var mode = option.mode
+    this.setData({mode:mode})
+    if(this.data.mode=="category"){
     //var thisBlock=this;
     var _this=this
     this.setData({
@@ -77,6 +82,16 @@ Page({
         })
       }
     })
+    }
+    if(this.data.mode=="searchResult"){
+      var list = JSON.parse(option.list)
+      var searchResult = "\""+option.searchResult+"\"的搜索结果"
+      this.setData({
+      pageData:list,
+      sourceData:list,
+      searchResult:searchResult
+    })
+    }
 
   },
 
@@ -91,8 +106,43 @@ Page({
     wx.navigateTo({
       url: `../detail/detail?id=${bid}`
     });
-  }
+  },
+  
+  输入书名:function(event){
+    this.setData({
+      searchKey:event.detail.value
+    })
+    console.log(this.searchKey)
+  },
 
+  按书名搜索:function(event){
+    //获取搜索结果列表
+    // wx.request({
+    //   url: '',
+    //   method:"GET",
+    //   data: {
+    //   },
+    //   header: {
+    //     'content-type': 'application/json' //默认值
+    //   },
+    //   dataType:JSON,
+    //   success: function(res){
+    //   }
+    // })
+    var list = [
+      {authorName: "唐家三少",author_id: 2,bookid: 2,image: "https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png",pubdate: "2020-5-17",rating: 6,title: "斗罗大陆"},
+      {authorName: "唐家三少",author_id: 2,bookid: 3,image: "https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png",rating: 6.6,title: "斗罗大陆2"},
+    ]
+   
+    if(this.data.searchKey==null){
+      console.log("null")
+    }
+    else{
+      console.log("跳转到搜索结果页")
+    wx.navigateTo({
+      url: '../category/category?list='+JSON.stringify(list)+'&mode=searchResult&searchResult='+this.data.searchKey,
+    })}
+  },  
 });
 function changeOrder(){
   var _this=this
@@ -183,9 +233,6 @@ function getPageData(){
       })
     }
   })
-  
-  
- 
 }
   
 

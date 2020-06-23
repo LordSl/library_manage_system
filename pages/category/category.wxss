@@ -5,6 +5,7 @@ page {
 
 .header {
   padding: 20rpx 30rpx;
+  margin-right: 50rpx;
 }
 
 .background {
@@ -108,3 +109,44 @@ page {
   padding: 10rpx;
  }
 
+.searchResult{
+  padding: 20rpx 30rpx;
+  margin-right: 185rpx;
+ }
+
+.searchResult text{
+  color: rgb(0, 0, 0);
+  font-size: 50arpx;
+  font-family:Fantasy;
+  font-weight:bold;
+  display:flex;
+  justify-content: left;
+}
+
+ .search-container { 
+  position: relative; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  background-color: rgb(255, 255, 255);
+  height: 80rpx; 
+  padding: 5rpx 25rpx; 
+  z-index: 100; 
+} 
+ 
+.search-container input { 
+  background: rgb(242, 242, 242); 
+  color: rgb(0, 0, 0); 
+  padding: 5px 80rpx 5px 10rpx; 
+  height: 40rpx; 
+  width: 100%; 
+  border-radius: 8rpx; 
+} 
+ 
+.search-container icon { 
+  position: absolute; 
+  z-index: 10; 
+  top: 50%; 
+  margin-top: -20rpx; 
+  right: 40rpx; 
+}

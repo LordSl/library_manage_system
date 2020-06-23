@@ -8,55 +8,33 @@
 <!-- catchtap="onSwiperTap" -->
 <swiper vertical="{{false}}" indicator-dots="true" autoplay="true" interval="5000">
   <swiper-item>
+    <!-- <text>这里是介绍</text> -->
     <image src="https://i.loli.net/2020/06/21/WS5us7HGk2cbDIa.png" data-postId="1"></image>
   </swiper-item>    
   <swiper-item>
+    <!-- <text>这里是介绍</text> -->
     <image src="https://i.loli.net/2020/06/21/7sFJX45Rb9pxNIe.png" data-postId="2"></image>
   </swiper-item>
   <swiper-item>
+    <!-- <text>这里是介绍</text> -->
     <image src="https://i.loli.net/2020/06/21/SNEZKzIurYjeg35.png" data-postId="3"></image>
   </swiper-item>
 </swiper>    
 
-<scroll-view class="mysv" scroll-y="true" style="height:{{scrollHeight}}px" bindscrolltolower="scrollLowerEvent"> 
- 
+<scroll-view scroll-y="true" style="height:{{scrollHeight}}px" bindscrolltolower="scrollLowerEvent"> 
+<image class='background' src="https://i.loli.net/2020/06/23/sTIfB25gGzvpAtW.png" mode="aspectFill" ></image>
+<!-- 随便找张图凑合一下 -->
 <block wx:for="{{classifications}}" wx:key="index"> 
-  <view class="common-list"> 
-    <view class="list-item" bindtap="进入具体类别" id="{{index}}"> 
-      <view class="index-list-item"> 
-        <view class="cover"> 
-          <image class="cover-img" src="{{item.url}}"></image> 
-        </view>  
-        <view class="content"> 
-          <view class="title">{{item.name}}</view> 
-          <view class="desc">{{item.motto}}</view> 
-          <view class="desc">{{item.auther}}</view> 
-        </view> 
-      </view>
-      <!-- 重复部分 -->
-      <view class="index-list-item"> 
-        <view class="cover"> 
-          <image class="cover-img" src="{{item.url}}"></image> 
-        </view>  
-        <view class="content"> 
-          <view class="title">{{item.name}}</view> 
-          <view class="desc">{{item.motto}}</view> 
-          <view class="desc">{{item.auther}}</view> 
-        </view> 
-      </view> 
-      <view class="index-list-item"> 
-        <view class="cover"> 
-          <image class="cover-img" src="{{item.url}}"></image> 
-        </view>  
-        <view class="content"> 
-          <view class="title">{{item.name}}</view> 
-          <view class="desc">{{item.motto}}</view> 
-          <view class="desc">{{item.auther}}</view> 
-        </view> 
-      </view>
-      <!-- 重复部分 -->  
-    </view> 
-  </view> 
-</block>  
+  <view class="home-list-item" style="opacity:0.7" bindtap="进入具体类别" id="{{index}}"> 
+      <view class="cover"> 
+        <image class="cover-img" src="{{item.url}}"></image> 
+      </view>  
+      <view class="content"> 
+        <view class="title">{{item.name}}</view> 
+        <view class="desc">{{item.motto}}</view> 
+        <view class="desc">{{item.auther}}</view>  
+      </view>  
+  </view>    
+</block>
+<text class="sumary" style="opacity:0.7">当前图书总数：{{currentBookNum}}</text>  
 </scroll-view> 
-<text class="sumary">当前图书总数：{{currentBookNum}}</text>

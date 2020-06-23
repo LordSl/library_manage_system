@@ -40,7 +40,7 @@ Page({
     else{
       console.log("跳转到搜索结果页")
     wx.navigateTo({
-      url: '../searchResult/searchResult?list='+JSON.stringify(list),
+      url: '../category/category?list='+JSON.stringify(list)+'&mode=searchResult&searchResult='+this.data.searchKey,
     })}
   },
 
@@ -56,11 +56,14 @@ Page({
     //  url: '../index/index',//+向下一页面传递的参数
     //})
      wx.navigateTo({
-       url: `../category/category?id=`+i+`&name=`+s
+       url: `../category/category?id=`+i+`&name=`+s+`&mode=category`
      })
   },
 
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中',
+    });
      var that = this
      wx.request({
      url: 'http://wesource.ink:8080/home/allCategory',
@@ -99,6 +102,7 @@ Page({
          classifications:tmp,
          currentBookNum:num
        })
+       wx.hideLoading();
      }
    })
  },

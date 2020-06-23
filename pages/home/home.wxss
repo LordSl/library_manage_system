@@ -7,52 +7,50 @@ page {
 
 .sumary{
   display: flex;
-
   align-items: center;
-
   justify-content: center;
+  background: #FFF;
 }
- 
-.mysv{ 
-  background: url("https://s1.ax1x.com/2020/05/19/YI5Rr6.jpg"); 
-} 
- 
-/*common list*/ 
-.list-item { 
+
+.background {
+  width: 100%;
+  height: 100%;
+  position:absolute; 
+  background-size:100% 100%;
+  z-index: -1;
+}
+
+/*home list*/ 
+.home-list-item { 
   position: relative; 
-  overflow: hidden 
-} 
- 
-/*index list*/ 
-.index-list-item { 
   background: #FFF; 
   padding: 30rpx 45rpx; 
   overflow: hidden; 
 } 
-.index-list-item:active { 
+.home-list-item:active { 
   background: #EEE; 
 } 
-.index-list-item .cover { 
+.home-list-item .cover { 
   float: left; 
   width: 180rpx; 
   height: 220rpx; 
   overflow: hidden 
 } 
-.index-list-item .cover image.cover-img { 
+.home-list-item .cover image.cover-img { 
   width: 150rpx; 
   height: 180rpx; 
 } 
-.index-list-item .content { 
+.home-list-item .content { 
   margin-left: 160rpx; 
 } 
-.index-list-item .title { 
+.home-list-item .title { 
   font-size: 37rpx; 
   display: inline-block; 
   height: 45rpx; 
   padding-top: 0rpx; 
   overflow: hidden; 
 } 
-.index-list-item .desc  { 
+.home-list-item .desc  { 
   display: block; 
   font-size: 30rpx; 
   padding-top: 25rpx; 
@@ -60,31 +58,22 @@ page {
   white-space:nowrap; 
   overflow: hidden; 
   text-overflow: ellipsis; 
-} 
- 
-.index-list-item .s_title{ 
-  font-size: 35rpx; 
-  display: inline-block; 
-  height: 60rpx; 
-  padding-top: 20rpx; 
-  overflow: hidden; 
-} 
- 
+}
+
 .search-container { 
   position: relative; 
   display: flex; 
   justify-content: center; 
   align-items: center; 
-  background-color: rgb(255, 255, 255); 
-  color: rgb(255, 255, 255); 
+  background-color: rgb(255, 255, 255);
   height: 80rpx; 
-  padding: 5rpx 30rpx; 
+  padding: 5rpx 25rpx; 
   z-index: 100; 
 } 
  
 .search-container input { 
-  background: rgb(240, 238, 238); 
-  color: #aaa; 
+  background: rgb(242, 242, 242); 
+  color: rgb(0, 0, 0); 
   padding: 5px 80rpx 5px 10rpx; 
   height: 40rpx; 
   width: 100%; 
@@ -101,12 +90,19 @@ page {
 
 swiper{
   width:100%;
-  height:450rpx;
+  height:400rpx;
   /* padding-top: 10rpx; */
-  padding-bottom: 15rpx;
+  /* padding-bottom: 10rpx; */
 }
 /*less sass*/
 swiper image{
   width:100%;
-  height:400rpx;
+  height:100%;
+}
+
+swiper text{
+  position: absolute;
+  right: 20rpx;
+  top: 10rpx;
+  color: rgb(0, 0, 0)
 }
