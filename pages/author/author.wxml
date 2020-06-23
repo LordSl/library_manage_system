@@ -25,7 +25,7 @@
 			<view class="list-item" data-id="{{item.bookid}}" bindtap="toDetailPage">
 				<view class="index-list-item">
 					<view class="cover">
-						<image class="cover-img" src="{{item.image}}"></image>
+						<image class="cover-img" src="{{item.image}}" mode="aspectFill"></image>
 					</view>
 					<view class="content">
 						<view class="title">{{item.title}}</view>
