@@ -18,6 +18,16 @@
   width: 200rpx;
   font-weight: bold;
   color: #616161;
+  padding-top: 0rpx;
+  height: 45rpx;
+}
+.simpleauthor{
+  letter-spacing: 3rpx;
+  padding-top: 15rpx;
+  color: #999;
+  font-size: 28rpx;
+  height: 40rpx;
+
 }
 
 .book-list .list-item .index-list-item {
@@ -31,17 +41,20 @@
 }
 
 .book-list .list-item .index-list-item .content .rate-block .item-rate {
-  padding: 8rpx 0 0 10rpx;
+  padding: 8rpx 0 0 0rpx;
   color: #ffcc00;
 }
 
 /* --------------------以下是登陆以后的样式---------------------------------------- */
-.login{
+.login {
   background: #fafafa;
+  height: 100%;
 }
-.holder{
+
+.holder {
   height: 30rpx;
 }
+
 .userinfocontainer {
   margin-left: 60rpx;
   padding-left: 0rpx;
@@ -52,45 +65,70 @@
   display: flex;
   flex-direction: column;
   align-content: flex-start;
-  border-radius:20rpx;
-  box-shadow:0 5px 7px   #d9d9d9;
+  border-radius: 20rpx;
+  box-shadow: 0 5px 7px #d9d9d9;
 }
-.simplelinestyle{
+
+.simplelinestyle {
   display: flex;
   flex-direction: row;
   margin-left: 160rpx;
 }
-.infotitle{
-  letter-spacing:3rpx;
+
+.infotitle {
+  letter-spacing: 3rpx;
   width: 100rpx;
   font-size: 30rpx;
   font-weight: bold;
   color: #595757;
   vertical-align: middle;
 }
-.infodisplay{
-  letter-spacing:3rpx;
+
+.infodisplay {
+  letter-spacing: 3rpx;
   color: #999;
   font-size: 30rpx;
   vertical-align: middle;
 }
-.modifybut{
+
+.modifybut {
   margin-top: 20rpx;
   margin-bottom: 20rpx;
   width: 300rpx;
-  float:right;
+  float: right;
   font-weight: bold;
   color: #555;
-  letter-spacing:6rpx;
+  letter-spacing: 6rpx;
 }
-.modifysubmintbut{
+
+.modifysubmintbut {
   margin-top: 20rpx;
   margin-bottom: 20rpx;
-  width: 300rpx;
-  float:right;
+  width: 150rpx;
+  margin-left: 130rpx;
+  /* float:right; */
   font-weight: bold;
-  letter-spacing:6rpx;
+  letter-spacing: 6rpx;
   color: #555;
+}
+
+.mondfycancelbut {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  margin-left: 40rpx;
+  width: 150rpx;
+  /* float:right; */
+  font-weight: bold;
+  letter-spacing: 6rpx;
+  color: #555;
+}
+
+.Collectionfooter {
+  /* letter-spacing:3rpx; */
+ margin-left: 27%;
+  color: #999;
+  font-size: 30rpx;
+  vertical-align: middle;
 }
 
 /* ============================== */
@@ -163,7 +201,7 @@
   margin-top: 20rpx;
   width: 310rpx;
   font-weight: bold;
-  letter-spacing:6rpx;
+  letter-spacing: 6rpx;
 }
 
 .resetbut {
@@ -171,7 +209,7 @@
   width: 310rpx;
   font-weight: bold;
   color: #555;
-  letter-spacing:6rpx;
+  letter-spacing: 6rpx;
 }
 
 .tips {

@@ -21,9 +21,17 @@ Page({
     modify: false,
   },
   //复用一下作者的
+  toDetailPage(e){
+    const bid = e.currentTarget.dataset.id; //??id [data-id]
+    wx.navigateTo({
+      url: `../detail/detail?id=${bid}`
+    });
+  },
   modifystart() {
+    var tempresult=this.data.modify;
+    tempresult=!tempresult;
     this.setData({
-      modify: true,
+      modify: tempresult,
     })
   },
   modifySubmit(e){
@@ -68,7 +76,7 @@ Page({
       },
       method: 'GET',
       success: function (res) {
-        console.log("GET AUTHOR SUCCESS!")
+        console.log("GET 数据 SUCCESS!")
         console.log(res.data)
         _this.setData({
           authorData: res.data.content,
@@ -143,9 +151,6 @@ Page({
 
   formReset(e) {
     console.log('form发生了reset事件，携带数据为：', e.detail.value)
-    this.setData({
-      chosen: ''
-    })
   },
   /**
    * 生命周期函数--监听页面显示

@@ -3,7 +3,7 @@
 	<view class="holder"></view>
 	<form catchsubmit="modifySubmit" catchreset="modifystart">
 		<view class="userinfocontainer">
-		<view class="holder"></view>
+			<view class="holder"></view>
 			<view class="simplelinestyle">
 				<view class="infotitle">账号</view>
 				<text class="infodisplay">{{userinfo.account}}</text>
@@ -28,18 +28,21 @@
 				<input wx:if='{{modify}}' placeholder-class="myplaceholder" class="usernameinput" name="studentnumb" placeholder="请输入学号" />
 				<text wx:else class="infodisplay">{{userinfo.studentnumb}}</text>
 			</view>
-			<button wx:if='{{modify}}' class="modifysubmintbut"   size='mini' formType="submit">提交</button>
-			<button wx:else class="modifybut" size='mini'type="warn"  formType="reset">修改</button>
+			<view wx:if='{{modify}}'>
+				<button class="modifysubmintbut" type="warn" size='mini' formType="submit">提交</button>
+				<button class="mondfycancelbut" size='mini' formType="reset">取消</button>
+			</view>
+
+			<button wx:else class="modifybut" size='mini' type="warn" formType="reset">修改</button>
+
 		</view>
 	</form>
 
-	<text></text>
+
 
 	<!-- 用户信息展示：：用一个有阴影的边框框住！！ -->
 
-	<view class="author-books">
-		<text>作者作品</text>
-	</view>
+	<text class="Collectionfooter">—— 我的收藏记录 ——</text>
 	<!-- todo给图书列表多点细节和显示项！！ -->
 	<view class="book-list" wx:if="{{authorData.totalBook > 0}}">
 		<block wx:for="{{authorData.books}}" wx:key="id">
@@ -49,7 +52,10 @@
 						<image class="cover-img" src="{{item.image}}"></image>
 					</view>
 					<view class="content">
+						<!-- authorName: "唐家三少" -->
+
 						<view class="title">{{item.title}}</view>
+						<view class="simpleauthor">{{item.authorName}}</view>
 						<view class="rate-block">
 							<rate length="5" value="{{item.rating/2}}" disabled="true"></rate>
 							<text class="item-rate">{{item.rating}}</text>
@@ -59,7 +65,6 @@
 			</view>
 		</block>
 	</view>
-	<text>登陆了</text>
 </view>
 <view class="userinfo" wx:else>
 	<image class='background' src="/images/loginbac.png" mode="aspectFill" style="opacity:0.60"></image>
