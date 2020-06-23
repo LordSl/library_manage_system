@@ -1,3 +1,8 @@
+<view class="search-container" wx:if="{{mode=='searchResult'}}">
+  <input type="text" bindinput="输入书名" placeholder="输入书名搜索"></input>
+  <icon bindtap="按书名搜索" type="search" size="20" />
+</view>
+
 <image class='background' src="/images/sophie.jpg" mode="aspectFill" style="opacity:0.60"></image>
 
 <view class='select_box'>
@@ -13,16 +18,18 @@
 
 
 <scroll-view scroll-y="true" style="height:{{scrollHeight}}px" bindscrolltolower="scrollLowerEvent">
-  <view class="header" >
+  <view class="header" wx:if="{{mode=='category'}}">
     <text>{{categoryName}}</text>
-
   </view>
-  <view class="common-list"    >
+  <view class="searchResult" wx:if="{{mode=='searchResult'}}">
+    <text>{{searchResult}}</text>
+  </view>
+  <view class="common-list">
     <block wx:for="{{pageData}}" wx:key="bookid">
       <view class="list-item" data-id="{{item.bookid}}" bindtap="toDetailPage">
         <view class="index-list-item" style="opacity:0.75">
           <view class="cover" >
-            <image class="cover-img" src="{{item.image}}"></image>
+            <image class="cover-img" src="{{item.image}}" mode="aspectFill"></image>
           </view>
           <view class="content" >
           

@@ -6,8 +6,8 @@
     "pages/index/index",
     "pages/author/author",
     "pages/detail/detail",
-    "pages/searchResult/searchResult"
-    
+    "pages/user/user",
+    "pages/recomm/recomm"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -30,7 +30,7 @@
       {
         "selectedIconPath": "images/appreciatefill.png",
         "iconPath": "images/appreciate.png",
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/recomm/recomm",
         "text": "推荐"
       },
       {

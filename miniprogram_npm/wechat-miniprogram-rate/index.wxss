@@ -48,7 +48,7 @@
   background-size: 250rpx 46rpx;
 }
 
-.rate__item--icon>view {
+.rate__item--icon .star {
   height: 100%;
   width: 50%;
 }
