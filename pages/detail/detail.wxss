@@ -93,6 +93,8 @@ page {
 }
 
 .book-meta .meta-info .rate-block .item-rate{
-  padding: 8rpx 0 0 10rpx;
+  font-size: 35rpx;
+  font-weight: bold;
+  padding: 9rpx 0 0 10rpx;
   color:#ffcc00;
 }

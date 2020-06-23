@@ -12,6 +12,7 @@
 			<view class="rate-block">
 			  <text>评分：  </text>
 				<rate length="5" value="{{bookData.rating/2}}" disabled="true"></rate>
+				<text class="item-rate">{{bookData.rating}}</text>
 			</view>
 		</view>
 		<view class="range">

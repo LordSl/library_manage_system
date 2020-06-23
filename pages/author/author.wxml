@@ -1,6 +1,6 @@
 <view wx:if="{{authorData}}">
 	<view class="author-image-container">
-		<image data-src="{{authorData.image}}" bindtap="previewimage" src="{{authorData.image}}"></image>
+		<image data-src="{{authorData.image}}" bindtap="previewimage" src="{{authorData.image}}" mode='widthFix'></image>
 	</view>
 
 	<view class="author-meta">
@@ -25,7 +25,7 @@
 			<view class="list-item" data-id="{{item.bookid}}" bindtap="toDetailPage">
 				<view class="index-list-item">
 					<view class="cover">
-						<image class="cover-img" src="{{item.image}}"></image>
+						<image class="cover-img" src="{{item.image}}" mode="aspectFill"></image>
 					</view>
 					<view class="content">
 						<view class="title">{{item.title}}</view>

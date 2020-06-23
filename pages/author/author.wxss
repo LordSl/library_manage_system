@@ -3,15 +3,13 @@ page{
 }
 
 .author-image-container{
-    background: rgb(196, 196, 196);
+    background: #dcdcdc;
     text-align: center;
-    padding: 50rpx 0;
+    padding: 20rpx 0;
 }
 
 .author-image-container image{
     display: inline-block;
-    width: 300rpx;
-    height: 400rpx;
 }
 
 .author-meta{
@@ -35,6 +33,7 @@ page{
 }
 
 .author-country{
+    font-family:Impact, Haettenschweiler, ‘Arial Narrow Bold’, sans-serif;
     color:#888;
 }
 
@@ -46,11 +45,11 @@ page{
 .author-intro .intro-header{
     color: #888;
     font-weight: bold;
-    padding: 20rpx 0 40rpx 0;
+    padding: 40rpx 0 40rpx 0;
 }
 
 .author-intro .intro-content{
-    font-size: 35rpx;
+    font-family:Impact, Haettenschweiler, ‘Arial Narrow Bold’, sans-serif;
     line-height: 2;
     text-align: justify;
 }
