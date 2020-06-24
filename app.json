@@ -1,9 +1,5 @@
 {
   "pages": [
-<<<<<<< Updated upstream
-=======
-    
->>>>>>> Stashed changes
     "pages/home/home",
     "pages/category/category",
     "pages/index/index",
@@ -21,7 +17,7 @@
   "sitemapLocation": "sitemap.json",
   "tabBar": {
     "color": "#a9b7b7",
-    "selectedColor": "#11cd6e",
+    "selectedColor": "#a1a3a6",
     "borderStyle": "white",
     "list": [
       {

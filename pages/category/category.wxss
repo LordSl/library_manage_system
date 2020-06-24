@@ -6,6 +6,7 @@ page {
 .header {
   padding: 20rpx 30rpx;
   margin-right: 50rpx;
+  margin:0px 0px -0px 0px;
 }
 
 .background {
@@ -17,12 +18,12 @@ page {
 }
 
 .header text {
-  color: rgb(0, 0, 0);
-  font-size: 50rpx;
-  font-family:Fantasy;
+  color: rgb(79, 75, 75);
+  font-size: 45rpx;
   font-weight:bold;
   display:flex;
   justify-content: center;
+  
 }
 .common-list{
   color: rgb(0, 0, 0);
@@ -59,7 +60,7 @@ page {
 .select_box{
   background: #fff;
   width: 27%;
-  margin:5px 10px -40px ;
+  margin:5px 10px -100px ;
   position: relative;
   z-index:1000;
   opacity: 0.8;
