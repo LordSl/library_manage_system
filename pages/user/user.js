@@ -148,6 +148,13 @@ Page({
       }
     })
   },
+  
+  toDetailPage(e) {
+    const bid = e.currentTarget.dataset.id; //图书id [data-id]
+    wx.navigateTo({
+      url: `../detail/detail?id=${bid}`
+    });
+  },
 
   formReset(e) {
     console.log('form发生了reset事件，携带数据为：', e.detail.value)
