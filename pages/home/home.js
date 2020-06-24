@@ -50,7 +50,11 @@ Page({
     console.log(i);
     var s = arr[i-1].name
     console.log("用户点击了！"+s);
-
+    //热度相关
+    //not necessary
+    //wx.navigateTo({
+    //  url: '../index/index',//+向下一页面传递的参数
+    //})
      wx.navigateTo({
        url: `../category/category?id=`+i+`&name=`+s+`&mode=category`
      })
