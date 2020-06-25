@@ -54,20 +54,22 @@ Page({
   onLoad(option) {
     var mode = option.mode
     this.setData({mode:mode})
+    //this.setData({
+    //  mode:"category"
+    //})
     if(this.data.mode=="category"){
-    //var thisBlock=this;
     var _this=this
     this.setData({
       categoryId: option.id,
+      //categoryId:2,
       categoryName:option.name,
-      //pageData:[],
       loadingMore: true,
       // pageData: [{"image": "http://p0.itc.cn/images01/20200520/a174fae3cb224d9abb25583597ef9cfa.jpeg", "id": "1", "title": "关于我不是人这一回事","rating":{"average":9.5},"author":{"1":"川原砾","2":"镰池和马"},"pubdate":"2000.5"},{"image": "http://img.mp.itc.cn/upload/20170715/c0019320eb544331b53c136c80ea24c1_th.jpg", "id": "2", "title": "关于你不是人这一回事","rating":{"average":0.0},"author":{"1":"川原乐","2":"镰也和马"},"pubdate":"2020.4"}]
     });
 
     wx.request({
     
-      url: 'http://wesource.ink:8080/book/bookCategory/'+_this.data.categoryId, 
+      url: 'http://wesource.ink:8080/library/books/category='+_this.data.categoryId, 
       data: {
       },
       header: {
@@ -187,7 +189,7 @@ function changeOrder(){
       for(let i=0;i<len;i++){
         temp.push(this.data.sourceData[i])
       }
-      temp.sort(sortByKey('pubdate'))
+      temp.sort(sortByKey('publishDate'))
       this.setData({
         pageData:temp
       })
@@ -220,7 +222,7 @@ function getPageData(){
 
   wx.request({
     
-    url: `http://wesource.ink:8080/book/bookCategory/`+_this.data.categoryId, 
+    url: `http://wesource.ink:8080/library/category=`+_this.data.categoryId, 
     data: {
     },
     header: {

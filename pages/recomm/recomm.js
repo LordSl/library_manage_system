@@ -95,7 +95,7 @@ Page({
 
   //跳转到详细页面
   toDetailPage(e) {
-    const bid = e.currentTarget.dataset.id; //图书id [data-id]
+    const bid = e.currentTarget.dataset.bookid; //图书id [data-id]
     wx.navigateTo({
       url: `../detail/detail?id=${bid}`
     });

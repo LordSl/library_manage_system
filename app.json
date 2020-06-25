@@ -1,12 +1,12 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/recomm/recomm",
     "pages/category/category",
     "pages/index/index",
     "pages/author/author",
     "pages/detail/detail",
-    "pages/user/user",
-    "pages/recomm/recomm"
+    "pages/user/user"
   ],
   "window": {
     "backgroundTextStyle": "light",

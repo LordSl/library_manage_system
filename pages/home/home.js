@@ -66,7 +66,7 @@ Page({
     });
      var that = this
      wx.request({
-     url: 'http://wesource.ink:8080/home/allCategory',
+     url: 'http://wesource.ink:8080/library/home',
      method:"GET",
      data: {
      },
@@ -75,25 +75,27 @@ Page({
      },
      dataType:JSON,
      success: function(res){
+
        console.log("GET SUCCEESS!")
+       
        var JSdata = JSON.parse(res.data).content
        console.log(JSdata)
        var tmp = new Array()
        var num = 0
        for(var i=0;i<JSdata.length;i++){
-         num+= JSdata[i].booknums
+         num+= JSdata[i].booksCount
          var s = ""
-         for(var j=0;j<JSdata[i].famous_authors.length;j++){
-           s += JSdata[i].famous_authors[j]
-           if(j!=JSdata[i].famous_authors.length-1) s+=" "
+         for(var j=0;j<JSdata[i].famousAuthors.length;j++){
+           s += JSdata[i].famousAuthors[j]
+           if(j!=JSdata[i].famousAuthors.length-1) s+=" "
            else s+="..."
          }
          tmp.push({
            name:JSdata[i].categoryName,
            // url:JSdata[i].url,
-           id:JSdata[i].id,
-           url:'../../images/book.png',
-           motto:JSdata[i].motto,
+           id:JSdata[i].categoryID,
+           url:JSdata[i].image,
+           motto:JSdata[i].introduction,
            auther:s,
            heat:JSdata[i].heat,
          })
