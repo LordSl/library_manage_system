@@ -7,6 +7,7 @@ page {
   padding: 20rpx 30rpx;
   margin-right: 50rpx;
   margin:0px 0px -0px 0px;
+  font-size: 38.5rpx;
 }
 
 .background {
@@ -19,7 +20,7 @@ page {
 
 .header text {
   color: rgb(79, 75, 75);
-  font-size: 42rpx;
+  font-size: 43.5rpx;
   font-weight:bold;
   display:flex;
   justify-content: center;
