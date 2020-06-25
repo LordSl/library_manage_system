@@ -10,19 +10,19 @@
 		</view>
 	</view>
 
-	<view class="author-intro" wx:if="{{authorData.intro}}">
+	<view class="author-intro" wx:if="{{authorData.introduction}}">
 		<view class="intro-header">
 			<text>作者简介</text>
 		</view>
-		<text class="intro-content">{{authorData.intro}}</text>
+		<text class="intro-content">{{authorData.introduction}}</text>
 	</view>
 
-	<view class="book-list" wx:if="{{authorData.totalBook > 0}}">
+	<view class="book-list" wx:if="{{authorData.bookCount > 0}}">
 		<view class="author-books">
 			<text>作者作品</text>
 		</view>
 		<block wx:for="{{authorData.books}}" wx:key="id">
-			<view class="list-item" data-id="{{item.bookid}}" bindtap="toDetailPage">
+			<view class="list-item" data-id="{{item.bookID}}" bindtap="toDetailPage">
 				<view class="index-list-item">
 					<view class="cover">
 						<image class="cover-img" src="{{item.image}}" mode="aspectFill"></image>

@@ -5,13 +5,12 @@ page {
 .cover-container {
   background: #dcdcdc;
   text-align: center;
-  padding: 20rpx 0;
+  padding: 50rpx;
 }
 
 .cover-container image {
   display: inline-block;
-  width: 700rpx;
-  height: 400rpx;
+  width: 500rpx;
 }
 
 .book-meta {
@@ -78,6 +77,7 @@ page {
 }
 
 .book-intro .intro-content {
+  color: #1f1f1f;
   font-size: 35rpx;
   line-height: 2;
   text-align: justify;
