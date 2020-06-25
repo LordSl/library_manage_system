@@ -8,7 +8,7 @@
 			<text class="book-title">{{bookData.title}}</text>
 			<text class="other-meta" data-aid="{{bookData.authorID}}" bindtap="toAuthorDetailPage">作者：<block class="{{bookData.authorName}}">{{bookData.authorName}}</block></text>
 			<text class="other-meta">出版社：{{bookData.publisher}}</text>
-			<text class="other-meta">出版日期：{{bookData.pubdate}}</text>
+			<text class="other-meta">出版日期：{{bookData.publishDate}}</text>
 			<view class="rate-block">
 			  <text>评分：  </text>
 				<rate length="5" value="{{bookData.rating/2}}" disabled="true"></rate>
