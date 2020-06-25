@@ -5,11 +5,12 @@ page{
 .author-image-container{
     background: #dcdcdc;
     text-align: center;
-    padding: 20rpx 0;
+    padding: 40rpx;
 }
 
 .author-image-container image{
     display: inline-block;
+    width: 600rpx;
 }
 
 .author-meta{
@@ -49,7 +50,8 @@ page{
 }
 
 .author-intro .intro-content{
-    font-family:Impact, Haettenschweiler, ‘Arial Narrow Bold’, sans-serif;
+    color: #1f1f1f;
+    font-size: 35rpx;
     line-height: 2;
     text-align: justify;
 }

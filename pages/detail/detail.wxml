@@ -1,12 +1,12 @@
 <view wx:if="{{bookData}}">
 	<view class="cover-container">
-		<image data-src="{{bookData.image}}" bindtap="previewImage" src="{{bookData.image}}"></image>
+		<image data-src="{{bookData.image}}" bindtap="previewImage" src="{{bookData.image}}" mode='widthFix'></image>
 	</view>
 
 	<view class="book-meta" >
 		<view class="meta-info">
 			<text class="book-title">{{bookData.title}}</text>
-			<text class="other-meta" data-aid="{{bookData.author_id}}" bindtap="toAuthorDetailPage">作者：<block class="{{bookData.authorName}}">{{bookData.authorName}}</block></text>
+			<text class="other-meta" data-aid="{{bookData.authorID}}" bindtap="toAuthorDetailPage">作者：<block class="{{bookData.authorName}}">{{bookData.authorName}}</block></text>
 			<text class="other-meta">出版社：{{bookData.publisher}}</text>
 			<text class="other-meta">出版日期：{{bookData.pubdate}}</text>
 			<view class="rate-block">

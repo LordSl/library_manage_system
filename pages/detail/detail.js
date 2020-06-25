@@ -1,5 +1,3 @@
-const api = require('../../utils/api.js');
-const utils = require('../../utils/util.js');
 var app = getApp();
 Page({
   data: {
@@ -8,12 +6,6 @@ Page({
     bookData: null,
     iscollected: false,
   },
-  // onLoad(option) {
-  //   var _this = this
-  //   _this.setData({
-  //     id: option.id,
-  //   });
-  // },
   onLoad(option) {
     var _this = this
     _this.setData({
@@ -23,7 +15,7 @@ Page({
       title: '加载中',
     });
     wx.request({
-      url: `http://wesource.ink:8080/book/` + _this.data.id + `/detail`,
+      url: `http://wesource.ink:8080/library/books/book=` + _this.data.id,
       data: {},
       header: {
         'content-type': 'application/json'

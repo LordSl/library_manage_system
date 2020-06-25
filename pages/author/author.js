@@ -1,6 +1,3 @@
-const api = require('../../utils/api.js');
-const utils = require('../../utils/util.js');
-
 Page({
   data:{
     id: 1,
@@ -19,7 +16,7 @@ Page({
       title: '加载中',
     });
     wx.request({
-      url: `http://wesource.ink:8080/author/`+_this.data.id+`/info`,
+      url: `http://wesource.ink:8080/library/authors/author=`+_this.data.id,
       data: {},
       header: {'content-type':'application/json'},
       method: 'GET',
