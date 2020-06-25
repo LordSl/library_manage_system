@@ -26,7 +26,7 @@
 
   <view class="common-list">
     <block wx:for="{{pageData}}" wx:key="bookid">
-      <view class="list-item" data-id="{{item.bookid}}" bindtap="toDetailPage">
+      <view class="list-item" data-id="{{item.bookID}}" bindtap="toDetailPage">
         <view class="index-list-item" style="opacity:0.75">
           <view class="cover" >
             <image class="cover-img" src="{{item.image}}" mode="aspectFill"></image>
