@@ -105,21 +105,23 @@ Page({
     console.log('form发生了登陆事件，携带数据为：', e.detail.value)
     var _this = this
     wx.request({
-      url: `http://wesource.ink:8080/user/login`,
+      url: `http://wesource.ink:8080/account/login`,
       data: {
-        account: e.detail.value.account,
+        email: e.detail.value.account,
         password: e.detail.value.password
       },
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
+        console.log('登录数据')
+        console.log(res)
         // 切记目前所有的返回数据绑定都是有问题的。。因为不知道咋绑定。。
-        app.globalData.islogin = true;
+        // app.globalData.islogin = true;
         app.globalData.userinfo = res.data.content;
         _this.setData({
           userinfo: res.data.content,
-          islogin: true
+          // islogin: true
         })
       }
     })
@@ -127,24 +129,32 @@ Page({
   registerSubmit(e) {
     console.log('form发生了注册事件，携带数据为：', e.detail.value)
     var _this = this
-    var _this = this
     wx.request({
-      url: `http://wesource.ink:8080/user/register`,
+      url: `http://wesource.ink:8080/account/register`,
+      method: "POST",
       data: {
-        account: e.detail.value.account,
+        email: e.detail.value.account,
         password: e.detail.value.password,
       },
       header: {
-        'content-type': 'application/json'
+        "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
-        // 切记目前所有的返回数据绑定都是有问题的。。因为不知道咋绑定。。
-        // app.globalData.islogin = true;
-        // app.globalData.userinfo= res.data.content;
-        // _this.setData({
-        //   userinfo: res.data.content,
-        //   islogin:true
-        // })
+        console.log('注册数据')
+        console.log(res)
+       if(res.errMsg=="request:ok"){
+        wx.showToast({
+          title: '注册成功',
+          icon: 'success',
+          duration: 2000
+        })
+       }else{
+        wx.showToast({
+          title: '注册失败',
+          icon: 'none',
+          duration: 2000
+        })
+       }
       }
     })
   },
