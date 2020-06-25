@@ -5,12 +5,12 @@ page {
 .cover-container {
   background: #dcdcdc;
   text-align: center;
-  padding: 40rpx;
+  padding: 50rpx;
 }
 
 .cover-container image {
   display: inline-block;
-  width: 600rpx;
+  width: 500rpx;
 }
 
 .book-meta {

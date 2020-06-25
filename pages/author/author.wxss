@@ -5,12 +5,12 @@ page{
 .author-image-container{
     background: #dcdcdc;
     text-align: center;
-    padding: 40rpx;
+    padding: 50rpx;
 }
 
 .author-image-container image{
     display: inline-block;
-    width: 600rpx;
+    width: 500rpx;
 }
 
 .author-meta{
