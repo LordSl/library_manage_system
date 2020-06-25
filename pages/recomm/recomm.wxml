@@ -1,5 +1,5 @@
 
-<image class='background' src="/images/blackWhite.jpg" mode="aspectFill" style="opacity:0.30"></image>
+<image class='background' src="/images/blackWhite.jpg" mode="aspectFill" style="opacity:0.80"></image>
 <view class="header">
     <text>{{categoryName}}</text>
   </view>
@@ -9,16 +9,14 @@
   <view class="common-list">
     <block wx:for="{{pageData}}" wx:key="bookid">
       <view class="list-item" data-id="{{item.bookid}}" bindtap="toDetailPage">
-        <view class="index-list-item" style="opacity:0.90">
+        <view class="index-list-item" style="opacity:0.75">
           <view class="cover" >
             <image class="cover-img" src="{{item.image}}" mode="aspectFill"></image>
           </view>
           <view class="content" >
-          
             <view class="title">{{item.title}}</view>
             <view class="ssss">评分:{{item.rating}}/作者:{{item.authorName}}/{{item.pubdate}}</view>
           </view>
-          <view class="divLine"></view>
         </view>
       </view>
     </block>
