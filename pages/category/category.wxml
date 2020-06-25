@@ -3,7 +3,7 @@
   <icon bindtap="按书名搜索" type="search" size="20" />
 </view>
 
-<image class='background' src="/images/blackWhite.jpg" mode="aspectFill" style="opacity:0.30"></image>
+<image class='background' src="/images/blackWhite.jpg" mode="aspectFill" style="opacity:0.80"></image>
 
 <view class='select_box'>
     <view class='select' catchtap='selectTap'>
@@ -36,7 +36,6 @@
             <view class="title">{{item.title}}</view>
             <view class="ssss">评分:{{item.rating}}/作者:{{item.authorName}}/{{item.publishDate}}</view>
           </view>
-          <view class="divLine"></view>
         </view>
       </view>
     </block>
