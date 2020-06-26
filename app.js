@@ -2,8 +2,13 @@ App({
   onLaunch: function () {
   },
   globalData:{
-    hasLogin:false,
-    userid:0,
+    islogin:false,
+// 对应关系：
+// nickname= username;
+//account= email;
+// studentnumb= stuNumber;
+// password= password;
+// userid= userID,
     userinfo:{
     },
   }

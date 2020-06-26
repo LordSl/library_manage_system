@@ -44,9 +44,9 @@
 
 	<text class="Collectionfooter">—— 我的收藏记录 ——</text>
 	<!-- todo给图书列表多点细节和显示项！！ -->
-	<view class="book-list" wx:if="{{authorData.totalBook > 0}}">
-		<block wx:for="{{authorData.books}}" wx:key="id">
-			<view class="list-item" data-id="{{item.bookid}}" bindtap="toDetailPage">
+	<view class="book-list" >
+		<block wx:for="{{authorData}}" wx:key="id">
+			<view class="list-item" data-id="{{item.bookID}}" bindtap="toDetailPage">
 				<view class="index-list-item">
 					<view class="cover">
 						<image class="cover-img" src="{{item.image}}" mode="aspectFill"></image>

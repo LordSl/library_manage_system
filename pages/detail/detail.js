@@ -7,6 +7,9 @@ Page({
     iscollected: false,
   },
   onLoad(option) {
+    console.log('全局用户数据')
+    console.log(app.globalData.islogin)
+    console.log(app.globalData.userinfo)
     var _this = this
     _this.setData({
       id: option.id,
@@ -21,7 +24,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log("nadaol")
+        console.log("拿到了book数据")
         console.log(res.data)
         _this.setData({
           bookData: res.data.content,
@@ -56,24 +59,25 @@ Page({
   checkcollected:function() {
     var _this = this
     var globalData = app.globalData;
-    var thisbookid = this.data.bookData.bookid;
-    // console.log("zhixingl")
+    var thisbookid = this.data.bookData.bookID;
+    // console.log("thisbookid")
     // console.log(thisbookid)
-    if (globalData.hasLogin) {
-      var uid = globalData.userid;
+    if (globalData.islogin) {
+      var uid = globalData.userinfo.userid;
       wx.request({
-        url: `http://wesource.ink:8080/book/iscollected`,
+        url: `http://wesource.ink:8080/library/books/favorite=`+thisbookid,
+        method:"GET",
         data: {
-          userid: uid,
-          bookid: thisbookid
+          userID: uid,
         },
         header: {
           'content-type': 'application/json'
         },
         success: (res) => {
-          // console.log(res.data);
+          console.log('拿到了是否喜欢')
+          console.log(res);
           _this.setData({
-            iscollected: res.data.content.iscollected
+            iscollected: res.data.content
           });
         }
       })
@@ -85,12 +89,12 @@ Page({
   onCollectionTap(e) {
     var _this = this
     var globalData = app.globalData;
-    var thisbookid = this.data.bookData.bookid;
-    console.log("zhixingl")
+    var thisbookid = this.data.bookData.bookID;
+    console.log("执行到了")
     console.log(thisbookid)
     var iscollectedtemp = this.data.iscollected;
-    if (globalData.hasLogin) {
-      var uid = globalData.userid;
+    if (globalData.islogin) {
+      var uid = globalData.userinfo.userid;
       // console.log("登录了")
       if (iscollectedtemp) {
         wx.showModal({
@@ -100,16 +104,18 @@ Page({
             if (res.confirm) {
               console.log('用户点击确定')
               wx.request({
-                url: `http://wesource.ink:8080/book/deletecollection`,
-                data: {
-                  userid: uid,
-                  bookid: thisbookid
-                },
+                url: `http://wesource.ink:8080/account/user=`+uid+`/favorite/update`,
                 header: {
-                  'content-type': 'application/json'
+                  'Content-Type':'application/x-www-form-urlencoded'
+                },
+                method:"POST",
+                data: {
+                  bookID: thisbookid,
+                  action: "remove",
                 },
                 success: (res) => {
-                  // console.log(res.data);
+                  console.log("取消收藏执行成功")
+                  console.log(res);
                   _this.setData({
                     iscollected: false
                   });
@@ -128,15 +134,18 @@ Page({
             if (res.confirm) {
               console.log('用户点击确定')
               wx.request({
-                url: `http://wesource.ink:8080/book/addcollection`,
-                data: {
-                  userid: uid,
-                  bookid: thisbookid
-                },
+                url: `http://wesource.ink:8080/account/user=`+uid+`/favorite/update`,
                 header: {
-                  'content-type': 'application/json'
+                  'Content-Type':'application/x-www-form-urlencoded'
+                },
+                method:"POST",
+                data: {
+                  bookID: thisbookid,
+                  action: "add"
                 },
                 success: (res) => {
+                  console.log('收藏执行成功')
+                  console.log(res)
                   _this.setData({
                     iscollected: true
                   });

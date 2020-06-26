@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "rate":"wechat-miniprogram-rate"
-  }
+  },
+  "enablePullDownRefresh": true
 }

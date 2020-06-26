@@ -7,9 +7,16 @@ Page({
   /**
    * 页面的初始数据
    */
+  // 对应关系：
+// nickname= username;
+//account= email;
+// studentnumb= stuNumber;
+// password= password;
+// userid= userID,
   data: {
     islogin: false,
     userinfo: {
+      userid:0,
       nickname: "weikaixuan",
       account: '13333217870',
       password: '123456',
@@ -37,25 +44,27 @@ Page({
   modifySubmit(e){
     var _this = this
     wx.request({
-      url: `http://wesource.ink:8080/user/modify`,
+      url: `http://wesource.ink:8080/account/update`,
       data: {
-        account:  _this.data.userinfo.account,
+        email:  _this.data.userinfo.account,
         password: e.detail.value.password,
-        studentnumb:e.detail.value.studentnumb,
-        nickname:e.detail.value.nickname
+        stuNumber:e.detail.value.studentnumb,
+        username:e.detail.value.nickname,
       },
       header: {
         'content-type': 'application/json'
       },
-      method: 'GET',
+      method: 'POST',
       success: function (res) {
-        console.log("GET AUTHOR SUCCESS!")
-        console.log(res.data)
-        app.globalData.userinfo = res.data.content;
-        _this.setData({
-          userinfo: res.data.content,
-          modify: false,
-        })
+        if(res.data.status){
+          console.log("修改数据 SUCCESS!")
+          _this.getuserinfo();
+          _this.setData({
+            modify: false,
+          })
+        }else{
+          console.log('修改失败')
+        }
         wx.hideLoading();
       },
       fail: function () {
@@ -63,32 +72,13 @@ Page({
       }
     });
   },
-  onReady() {
-    var _this = this
-    wx.showLoading({
-      title: '加载中',
-    });
-    wx.request({
-      url: `http://wesource.ink:8080/author/` + _this.data.id + `/info`,
-      data: {},
-      header: {
-        'content-type': 'application/json'
-      },
-      method: 'GET',
-      success: function (res) {
-        console.log("GET 数据 SUCCESS!")
-        console.log(res.data)
-        _this.setData({
-          authorData: res.data.content,
-          loadingHidden: true
-        })
-        wx.hideLoading();
-      },
-      fail: function () {
-        console.log("GET AUTHOR FAIL!")
-      }
-    });
-  },
+  // onReady() {
+  //   var _this = this
+  //   wx.showLoading({
+  //     title: '加载中',
+  //   });
+   
+  // },
   //----------------------------------------------------------
   /**
    * 生命周期函数--监听页面加载
@@ -96,15 +86,73 @@ Page({
   onLoad: function (options) {
     var _this = this
     var globalData = app.globalData;
-    console.log('xianshi')
     this.setData({
-      islogin: globalData.hasLogin
+      islogin: globalData.islogin
+    });
+    
+  },
+getuserfavorite(){
+  wx.showLoading({
+         title: '加载收藏列表',
+  });
+  var _this = this
+  var globalData = app.globalData;
+  var uid = globalData.userinfo.userid;
+  wx.request({
+    url: `http://wesource.ink:8080/account/user=`+uid+`/favorite`,
+    data: {},
+    header: {
+      'content-type': 'application/json'
+    },
+    method: 'GET',
+    success: function (res) {
+      console.log("拿到了用户收藏列表！！")
+      console.log(res.data)
+      _this.setData({
+        authorData: res.data.content,
+        loadingHidden: true
+      })
+      wx.hideLoading();
+    },
+    fail: function () {
+      console.log("GET AUTHOR FAIL!")
+    }
+  });
+},
+  
+  getuserinfo(){
+    var _this = this;
+    var userid=this.data.userinfo.userid;
+    wx.request({
+      url: 'http://wesource.ink:8080/account/user='+userid,
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log('拿到了用户数据')
+        console.log(res)
+        if (res.data.status) {
+          app.globalData.islogin = true;
+          var list={}
+          list.nickname=res.data.content.username;
+          list.account=res.data.content.email;
+          list.studentnumb=res.data.content.stuNumber;
+          list.password=res.data.content.password;
+          list.userid=res.data.content.userID,
+          app.globalData.userinfo = list;
+          _this.setData({
+            userinfo: list,
+            islogin: true
+        })
+        } else{
+
+        }
+      },
     });
   },
-
   //登录模块
   loginSubmit(e) {
-    console.log('form发生了登陆事件，携带数据为：', e.detail.value)
     var _this = this
     wx.request({
       url: `http://wesource.ink:8080/account/login`,
@@ -117,24 +165,26 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log('登录数据')
-        console.log(res)
         if(res.data.message!="用户名或密码错误。"){
         app.globalData.islogin = true;
-
         var list={}
         list.nickname=res.data.content.username;
         list.account=res.data.content.email;
         list.studentnumb=res.data.content.stuNumber;
         list.password=res.data.content.password;
-
-        app.globalData.userinfo = res.data.content;
+        list.userid=res.data.content.userID,
+// 对应关系：
+// nickname= username;
+//account= email;
+// studentnumb= stuNumber;
+// password= password;
+// userid= userID,
+        app.globalData.userinfo = list;
         _this.setData({
           userinfo: list,
           islogin: true
         })
-        console.log(_this.data.userinfo)
-        console.log(app.globalData.islogin+"登录？")
+        _this.getuserfavorite()
       }
         else{wx.showModal({
             title: '登录失败',
@@ -160,12 +210,12 @@ Page({
         password: e.detail.value.password,
       },
       header: {
-        "Content-Type": "application/x-www-form-urlencoded"
+        'content-type': 'application/json'
       },
       success: function (res) {
         console.log('注册数据')
         console.log(res)
-       if(res.errMsg=="request:ok"){
+       if(res.statusCode==200){
         wx.showToast({
           title: '注册成功',
           icon: 'success',
@@ -195,8 +245,15 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
 
+  onPullDownRefresh: function () {
+    if(islogin){
+      console.log('执行了显示')
+      this.getuserfavorite();
+    }
   },
+  onPullDownRefresh () {
+    this.getuserfavorite()
+  }
 
 })
