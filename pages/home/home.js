@@ -14,33 +14,14 @@ Page({
     this.setData({
       searchKey:event.detail.value,
     })
-    
   },
   按书名搜索:function(event){
     //获取搜索结果列表
-    //console.log(this.searchKey)
     var list=[]
-    /**wx.request({
-       url: 'http://wesource.ink:8080/library/books/search',
-       method:"GET",
-       data: {
-         "key":this.data.searchKey
-       },
-       header: {
-         'content-type': 'application/json' //默认值
-       },
-       dataType:JSON,
-       success: function(res){
-         list=list.concat(JSON.parse(res.data).content)
-         console.log(list)
-       }
-    })
-    **/
     request(this.data.searchKey).then(res=>{
      list=res.content
      console.log(list)
    })
-   
     if(this.data.searchKey==null){
       console.log("null")
     }
@@ -57,14 +38,9 @@ Page({
     console.log(i);
     var s = arr[i-1].name
     console.log("用户点击了！"+s);
-    //热度相关
-    //not necessary
-    //wx.navigateTo({
-    //  url: '../index/index',//+向下一页面传递的参数
-    //})
-     wx.navigateTo({
-       url: `../category/category?id=`+i+`&name=`+s+`&mode=category`
-     })
+    wx.navigateTo({
+      url: `../category/category?id=`+i+`&name=`+s+`&mode=category`
+    })
   },
 
   onLoad: function (options) {
@@ -92,11 +68,10 @@ Page({
        for(var i=0;i<JSdata.length;i++){
          num+= JSdata[i].booksCount
          var s = ""
-         for(var j=0;j<JSdata[i].famousAuthors.length;j++){
-           s += JSdata[i].famousAuthors[j]
-           if(j!=JSdata[i].famousAuthors.length-1) s+=" "
-           else s+="..."
+         for(var j=0;j<JSdata[i].famousAuthors.length && j<3;j++){
+           s += JSdata[i].famousAuthors[j]+" "
          }
+         s+="..."
          tmp.push({
            name:JSdata[i].categoryName,
            // url:JSdata[i].url,
@@ -177,18 +152,3 @@ function request(data) {
     });
   });
 }
- /**
-   * 生命周期函数--监听页面加载
-   */
-//  onLoad: function (options) {
-//     var tmp1 = [{name:'文学',url:'../../images/book.png',motto:'腹有诗书气自华',auther:'曹雪芹 托尔斯泰 ...'},
-//     {name:'科幻',url:'../../images/book.png',motto:'想象力是人类进步的阶梯',auther:'刘慈欣 克拉克 ...'},
-//     {name:'青春',url:'../../images/book.png',motto:'懵懂时光最易伤',auther:'郭敬明 韩寒 ...'},
-//     {name:'武侠',url:'../../images/book.png',motto:'有人的地方就有江湖',auther:'金庸 梁羽生 ...'},
-//     {name:'悬疑',url:'../../images/book.png',motto:'智力和观察力的对决',auther:'岛田庄司 阿加莎·克里斯蒂娜...'}]
-//     var tmp2 = 2333
-//     this.setData({
-//       classifications:tmp1,
-//       currentBookNum:tmp2
-//     })
-//   },
