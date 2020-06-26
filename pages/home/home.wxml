@@ -25,11 +25,8 @@
 
 
 <scroll-view scroll-y="true" style="height:{{scrollHeight}}px" bindscrolltolower="scrollLowerEvent"> 
-<<<<<<< HEAD
-=======
 <!-- <image class='background' src="https://i.loli.net/2020/06/23/sTIfB25gGzvpAtW.png" mode="aspectFill" ></image> -->
 <!-- 随便找张图凑合一下 -->
->>>>>>> master
 <block wx:for="{{classifications}}" wx:key="index"> 
   <view class="home-list-item" bindtap="进入具体类别" id="{{index}}"> 
       <view class="cover"> 
