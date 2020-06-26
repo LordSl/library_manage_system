@@ -28,6 +28,7 @@ page {
 .home-list-item { 
   position: relative; 
   background: #FFF; 
+  opacity:0.8;
   padding: 30rpx 45rpx; 
   overflow: hidden; 
 } 
@@ -47,7 +48,7 @@ page {
 .home-list-item .content { 
   margin-left: 160rpx; 
 } 
-.home-list-item .title { 
+.home-list-item .title {
   font-size: 35rpx; 
   display: inline-block; 
   height: 45rpx; 

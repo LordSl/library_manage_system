@@ -1,3 +1,0 @@
-home页面
-
-<text class="sumary" style="opacity:0.7">当前图书总数：{{currentBookNum}}</text>  
