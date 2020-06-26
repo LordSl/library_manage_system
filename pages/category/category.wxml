@@ -36,7 +36,6 @@
             <view class="title">{{item.title}}</view>
             <view class="ssss">评分:{{item.rating}}/作者:{{item.authorName}}/{{item.publishDate}}</view>
           </view>
-
         </view>
       </view>
     </block>
