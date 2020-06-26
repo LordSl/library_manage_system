@@ -1,38 +1,45 @@
 // pages/home/home.js
+
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     classifications:[],//存储类别数据
-    currentBookNum:null,//或许有其他全局参数，先摆个样子
-    searchKey:null,
+    currentBookNum:0,//或许有其他全局参数，先摆个样子
+    searchKey:"",
   },
   
   输入书名:function(event){
     this.setData({
-      searchKey:event.detail.value
+      searchKey:event.detail.value,
     })
-    console.log(this.searchKey)
+    
   },
   按书名搜索:function(event){
     //获取搜索结果列表
-    // wx.request({
-    //   url: '',
-    //   method:"GET",
-    //   data: {
-    //   },
-    //   header: {
-    //     'content-type': 'application/json' //默认值
-    //   },
-    //   dataType:JSON,
-    //   success: function(res){
-    //   }
-    // })
-    var list = [
-      {authorName: "唐家三少",author_id: 2,bookid: 2,image: "https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png",pubdate: "2020-5-17",rating: 6,title: "斗罗大陆"},
-      {authorName: "唐家三少",author_id: 2,bookid: 3,image: "https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png",rating: 6.6,title: "斗罗大陆2"},
-    ]
+    //console.log(this.searchKey)
+    var list=[]
+    /**wx.request({
+       url: 'http://wesource.ink:8080/library/books/search',
+       method:"GET",
+       data: {
+         "key":this.data.searchKey
+       },
+       header: {
+         'content-type': 'application/json' //默认值
+       },
+       dataType:JSON,
+       success: function(res){
+         list=list.concat(JSON.parse(res.data).content)
+         console.log(list)
+       }
+    })
+    **/
+    request(this.data.searchKey).then(res=>{
+     list=res.content
+     console.log(list)
+   })
    
     if(this.data.searchKey==null){
       console.log("null")
@@ -146,6 +153,30 @@ Page({
   }
 })
 
+
+function request(data) {
+  return new Promise(function (resolve, reject) {
+    wx.request({
+      url: 'http://wesource.ink:8080/library/books/search',
+      method: 'GET',
+      data: {key:data},
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        if (res.statusCode === 200) {
+          resolve(res.data);
+        } else
+          if (res.statusCode === 403) {
+          }
+          reject();
+      },
+      fail: function () {
+        reject();
+      }
+    });
+  });
+}
  /**
    * 生命周期函数--监听页面加载
    */

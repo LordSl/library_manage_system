@@ -13,7 +13,7 @@ Page({
     pageData: [], //图书数据
     categoryId: 1,
     categoryName:"二次元",
-
+    searchKey:"",
     show:false,//控制下拉列表的显示隐藏，false隐藏、true显示
     selectData:['原顺序','按评分','按作者','按出版日期'],//下拉列表的数据
     index:0,//选择的下拉列表下标
@@ -43,7 +43,6 @@ Page({
    index:Index,
    show:!this.data.show,
    pageData:[],//可能修改过顺序的列表
-   
   });
   changeOrder.call(this);
   
@@ -54,14 +53,10 @@ Page({
   onLoad(option) {
     var mode = option.mode
     this.setData({mode:mode})
-    //this.setData({
-    //  mode:"category"
-    //})
     if(this.data.mode=="category"){
     var _this=this
     this.setData({
       categoryId: option.id,
-      //categoryId:2,
       categoryName:option.name,
       loadingMore: true,
       // pageData: [{"image": "http://p0.itc.cn/images01/20200520/a174fae3cb224d9abb25583597ef9cfa.jpeg", "id": "1", "title": "关于我不是人这一回事","rating":{"average":9.5},"author":{"1":"川原砾","2":"镰池和马"},"pubdate":"2000.5"},{"image": "http://img.mp.itc.cn/upload/20170715/c0019320eb544331b53c136c80ea24c1_th.jpg", "id": "2", "title": "关于你不是人这一回事","rating":{"average":0.0},"author":{"1":"川原乐","2":"镰也和马"},"pubdate":"2020.4"}]
@@ -87,12 +82,59 @@ Page({
     }
     if(this.data.mode=="searchResult"){
       var list = JSON.parse(option.list)
+      var searchkey=option.searchResult
       var searchResult = "\""+option.searchResult+"\"的搜索结果"
       this.setData({
-      pageData:list,
-      sourceData:list,
-      searchResult:searchResult
-    })
+        pageData:list,
+        //sourceData:list,
+        searchResult:searchResult,
+        searchKey:searchkey
+      })
+      var that=this
+    //获取搜索结果列表
+    console.log(this.data.searchResult)
+    wx.request({
+      url: 'http://wesource.ink:8080/library/books/search',
+      method:"GET",
+      data: {
+        key:that.data.searchKey
+      },
+      header: {
+        'content-type': 'application/json' //默认值
+      },
+      dataType:JSON,
+      success: function(res){
+        console.log(res)
+        that.setData(
+          {
+            sourceData:JSON.parse(res.data).content,
+            pageData:JSON.parse(res.data).content
+          }
+          )
+        
+      }
+   })
+   wx.request({
+      url: 'http://wesource.ink:8080/library/books/search',
+      method:"GET",
+      data: {
+        key:that.data.searchKey
+      },
+      header: {
+        'content-type': 'application/json' //默认值
+      },
+      dataType:JSON,
+      success: function(res){
+        console.log(res)
+        that.setData(
+          {
+            sourceData:JSON.parse(res.data).content,
+            pageData:JSON.parse(res.data).content
+          }
+          )
+        
+      }
+   })
     }
 
   },
@@ -114,36 +156,46 @@ Page({
     this.setData({
       searchKey:event.detail.value
     })
-    console.log(this.searchKey)
+    
   },
 
   按书名搜索:function(event){
+    var that=this
     //获取搜索结果列表
-    // wx.request({
-    //   url: '',
-    //   method:"GET",
-    //   data: {
-    //   },
-    //   header: {
-    //     'content-type': 'application/json' //默认值
-    //   },
-    //   dataType:JSON,
-    //   success: function(res){
-    //   }
-    // })
-    var list = [
+    wx.request({
+      url: 'http://wesource.ink:8080/library/books/search',
+      method:"GET",
+      data: {
+        "key":this.data.searchKey
+      },
+      header: {
+        'content-type': 'application/json' //默认值
+      },
+      dataType:JSON,
+      success: function(res){
+        that.setData(
+          {
+            pageData:JSON.parse(res.data).content,
+            searchResult:"\""+that.data.searchKey+"\"的搜索结果"
+          }
+          )
+        
+      }
+   })
+    /**var list = [
       {authorName: "唐家三少",author_id: 2,bookid: 2,image: "https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png",pubdate: "2020-5-17",rating: 6,title: "斗罗大陆"},
       {authorName: "唐家三少",author_id: 2,bookid: 3,image: "https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png",rating: 6.6,title: "斗罗大陆2"},
     ]
-   
-    if(this.data.searchKey==null){
+   **/
+
+    /**if(this.data.searchKey==null){
       console.log("null")
     }
     else{
       console.log("跳转到搜索结果页")
     wx.navigateTo({
       url: '../category/category?list='+JSON.stringify(list)+'&mode=searchResult&searchResult='+this.data.searchKey,
-    })}
+    })}**/
   },  
 });
 function changeOrder(){
