@@ -56,6 +56,8 @@ Page({
         },{"image": "https://img1.doubanio.com/view/subject/s/public/s23632058.jpg", "bookid": "31", "title": "天龙八部","rating":"9.1","authorName":"金庸","pubdate":"1994-5"
         },{"image": "https://img9.doubanio.com/view/subject/s/public/s26018916.jpg", "bookid": "32", "title": "神雕侠侣","rating":"8.9","authorName":"金庸","pubdate":"2014-7"
         },{"image": "https://img9.doubanio.com/view/subject/s/public/s2157336.jpg", "bookid": "33", "title": "射雕英雄传","rating":"9.0","authorName":"金庸","pubdate":"1999-04"
+        },{"image": "https://img1.doubanio.com/view/subject/s/public/s29300537.jpg", "bookid": "14", "title": "计算机网络","rating":"8.9","authorName":"谢希仁","pubdate":"2017-1"
+        },{"image": "https://img3.doubanio.com/view/subject/l/public/s32330891.jpg", "bookid": "17", "title": "2001:太空漫游","rating":"9.2","authorName":"阿瑟·克拉克","pubdate":"2019-5-10"
         }
       ]
       
