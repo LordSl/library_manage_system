@@ -5,27 +5,33 @@
   <icon bindtap="按书名搜索" type="search" size="20" />
 </view>
 
-<!-- catchtap="onSwiperTap" -->
-<swiper vertical="{{false}}" indicator-dots="true" autoplay="true" interval="5000">
-  <swiper-item>
-    <!-- <text>这里是介绍</text> -->
-    <image src="/images/mountain_alter.png" data-postId="1"></image>
-  </swiper-item>    
-  <swiper-item>
-    <!-- <text>这里是介绍</text> -->
-    <image src="/images/woman_alter.png" data-postId="2"></image>
-  </swiper-item>
-  <swiper-item>
-    <!-- <text>这里是介绍</text> -->
-    <image src="/images/car_alter.png" data-postId="3"></image>
-  </swiper-item>
-</swiper>    
+<view class="home-swiper">
+    <!-- catchtap="onSwiperTap" -->
+    <swiper vertical="{{false}}" indicator-dots="true" autoplay="true" interval="5000">
+      <swiper-item>
+      <!-- <text>这里是介绍</text> -->
+      <image src="/images/mountain_alter.png" data-postId="1"></image>
+    </swiper-item>    
+    <swiper-item>
+      <!-- <text>这里是介绍</text> -->
+      <image src="/images/woman_alter.png" data-postId="2"></image>
+    </swiper-item>
+    <swiper-item>
+      <!-- <text>这里是介绍</text> -->
+     <image src="/images/car_alter.png" data-postId="3"></image>
+   </swiper-item>
+  </swiper>    
+</view>
+
 
 <scroll-view scroll-y="true" style="height:{{scrollHeight}}px" bindscrolltolower="scrollLowerEvent"> 
+
 <image class='background' src="/images/sola.jpg" mode="aspectFill" ></image>
-<!-- 随便找张图凑合一下 -->
+
+
+
 <block wx:for="{{classifications}}" wx:key="index"> 
-  <view class="home-list-item" style="opacity:0.7" bindtap="进入具体类别" id="{{index}}"> 
+  <view class="home-list-item" bindtap="进入具体类别" id="{{index}}"> 
       <view class="cover"> 
         <image class="cover-img" src="{{item.url}}"></image> 
       </view>  

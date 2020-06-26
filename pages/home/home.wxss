@@ -20,6 +20,10 @@ page {
   z-index: -1;
 }
 
+.home-swiper{
+  padding: 20rpx;
+}
+
 /*home list*/ 
 .home-list-item { 
   position: relative; 
@@ -44,11 +48,13 @@ page {
   margin-left: 160rpx; 
 } 
 .home-list-item .title { 
-  font-size: 37rpx; 
+  font-size: 35rpx; 
   display: inline-block; 
   height: 45rpx; 
   padding-top: 0rpx; 
-  overflow: hidden; 
+  overflow: hidden;
+  color: #464547; 
+  font-weight: bolder;
 } 
 .home-list-item .desc  { 
   display: block; 
