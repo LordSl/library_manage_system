@@ -101,6 +101,8 @@ Page({
       islogin: globalData.hasLogin
     });
   },
+
+  //登录模块
   loginSubmit(e) {
     console.log('form发生了登陆事件，携带数据为：', e.detail.value)
     var _this = this
@@ -110,22 +112,43 @@ Page({
         email: e.detail.value.account,
         password: e.detail.value.password
       },
+      method:"POST",
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
         console.log('登录数据')
         console.log(res)
-        // 切记目前所有的返回数据绑定都是有问题的。。因为不知道咋绑定。。
-        // app.globalData.islogin = true;
+        if(res.data.message!="用户名或密码错误。"){
+        app.globalData.islogin = true;
+
+        var list={}
+        list.nickname=res.data.content.username;
+        list.account=res.data.content.email;
+        list.studentnumb=res.data.content.stuNumber;
+        list.password=res.data.content.password;
+
         app.globalData.userinfo = res.data.content;
         _this.setData({
-          userinfo: res.data.content,
-          // islogin: true
+          userinfo: list,
+          islogin: true
         })
+        console.log(_this.data.userinfo)
+        console.log(app.globalData.islogin+"登录？")
+      }
+        else{wx.showModal({
+            title: '登录失败',
+            content: '用户名或密码错误。',
+            success: function(res) {
+              if (res.confirm) {} 
+              else if (res.cancel) {}  
+            }})
+        }
       }
     })
   },
+
+  //注册
   registerSubmit(e) {
     console.log('form发生了注册事件，携带数据为：', e.detail.value)
     var _this = this
