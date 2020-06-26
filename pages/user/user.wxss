@@ -147,7 +147,7 @@
 
 .container {
   /* margin-top: 200rpx; */
-  padding-top: 540rpx;
+  padding-top: 660rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -166,15 +166,16 @@
 }
 
 .topfooter {
-  font-size: 20rpx;
+  font-size: 25rpx;
   color: #999;
   vertical-align: middle;
   margin-bottom: 20rpx;
 }
 
 .title {
+  margin-top: 7rpx;
   width: 110rpx;
-  font-size: 35rpx;
+  font-size: 28rpx;
   font-weight: bold;
   color: #595757;
   vertical-align: middle;
@@ -182,12 +183,12 @@
 
 .usernameinput {
   width: 200rpx;
-  font-size: 35rpx;
+  font-size: 28rpx;
   vertical-align: middle;
 }
 
 .passwordinput {
-  font-size: 35rpx;
+  font-size: 28rpx;
   width: 200rpx;
   vertical-align: middle;
 }
@@ -222,7 +223,7 @@
 
 swiper {
   width: 100%;
-  height: 950rpx;
+  height: 1100rpx;
   /* padding-top: 10rpx; */
   padding-bottom: 15rpx;
 }

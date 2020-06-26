@@ -73,7 +73,7 @@
 		<swiper-item>
 			<form catchsubmit="loginSubmit" catchreset="formReset">
 				<view class="container">
-					<text class="topfooter">—— 登陆即可同步收藏记录 ——</text>
+					<text class="topfooter">———— 登陆即可同步收藏记录 ————</text>
 					<view class="usernamestyle">
 						<view class="title">账号：</view>
 						<input placeholder-class="myplaceholder" class="usernameinput" name="account" placeholder="请输入账号" />
