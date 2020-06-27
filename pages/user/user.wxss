@@ -170,6 +170,7 @@
 }
 
 .topfooter {
+  margin-top: 90rpx;
   font-size: 25rpx;
   color: #999;
   vertical-align: middle;
@@ -227,7 +228,7 @@
 
 swiper {
   width: 100%;
-  height: 950rpx;
+  height: 1050rpx;
   /* padding-top: 10rpx; */
 /*   padding-bottom: 15rpx; */
 }

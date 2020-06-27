@@ -99,6 +99,7 @@
 						<view class="title">学号：</view>
 						<input class="usernameinput" name="studentnumb" placeholder="请输入学号" />
 					</view> -->
+						<text class="topfooter">———— 注册以获取账号 ————</text>
 					<view class="usernamestyle">
 						<view class="title">账号：</view>
 						<input class="usernameinput" placeholder-class="myplaceholder" name="account" placeholder="请输入账号" />
