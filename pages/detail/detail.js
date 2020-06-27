@@ -35,26 +35,6 @@ Page({
       }
     })
 
-    /** 
-    api.requestBookDetail(
-      this.data.id, {
-        fields: 'image,summary,publisher,title,rating,pubdate,author,author_intro,catalog'
-      }
-    ).then((data) => {
-      this.setData({
-        loadidngHidden: true,
-        bookData: data
-      });
-      wx.hideLoading();
-    }).catch(_ => {
-      this.setData({
-        loadidngHidden: true
-      });
-      wx.hideLoading();
-      wx.navigateBack();
-    });
-    **/
-
   },
   checkcollected:function() {
     var _this = this

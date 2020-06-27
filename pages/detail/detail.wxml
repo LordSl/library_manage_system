@@ -18,22 +18,6 @@
 		<view class="range">
       <image catchtap="onCollectionTap" wx:if='{{iscollected}}' src="../../images/collectionsucc.png"></image>
 			<image catchtap="onCollectionTap" wx:else src="../../images/collection.png"></image>
-			<!-- <text class="score">{{bookData.rating}}</text> -->
-			<!-- <text class="viewers">{{bookData.rating.numRaters ? bookData.rating.numRaters : 0}}参与</text> -->
 		</view>
-	</view>
-
-	<view class="book-intro" wx:if="{{bookData.summary}}">
-		<view class="intro-header">
-			<text>简介</text>
-		</view>
-		<text class="intro-content">{{bookData.summary}}</text>
-	</view>
-
-	<view class="book-intro" wx:if="{{bookData.author_intro}}">
-		<view class="intro-header">
-			<text>作者</text>
-		</view>
-		<text class="intro-content">{{bookData.author_intro}}</text>
 	</view>
 </view>
