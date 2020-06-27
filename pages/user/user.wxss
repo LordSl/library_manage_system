@@ -44,6 +44,12 @@
   padding: 8rpx 0 0 0rpx;
   color: #ffcc00;
 }
+.book-list .list-item .index-list-item .content .title{
+  font-weight: bold;
+  width: 600rpx;
+  color: #616161;
+}
+
 
 /* --------------------以下是登陆以后的样式---------------------------------------- */
 .login {
