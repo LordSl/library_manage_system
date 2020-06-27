@@ -3,7 +3,7 @@
   <icon bindtap="按书名搜索" type="search" size="20" />
 </view>
 
-<image class='background' src="/images/blackWhite.jpg" mode="aspectFill" style="opacity:0.80"></image>
+<image class='background' src="/images/blackWhite.jpg" mode="aspectFill" style="opacity:0.60"></image>
 
 <view class='select_box'>
     <view class='select' catchtap='selectTap'>
@@ -27,7 +27,7 @@
   <view class="common-list">
     <block wx:for="{{pageData}}" wx:key="bookid">
       <view class="list-item" data-id="{{item.bookID}}" bindtap="toDetailPage">
-        <view class="index-list-item" style="opacity:0.75">
+        <view class="index-list-item" style="opacity:0.80">
           <view class="cover" >
             <image class="cover-img" src="{{item.image}}" mode="aspectFill"></image>
           </view>

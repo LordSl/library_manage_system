@@ -66,14 +66,14 @@
 		</block>
 	</view>
 </view>
-<view class="userinfo" wx:else>
+<view class="userinfo" catchtouchmove="true" fixed="true" wx:else>
 	<image class='background' src="/images/loginbac.png" mode="aspectFill" style="opacity:0.60"></image>
 
 	<swiper vertical="{{false}}" indicator-dots="true">
 		<swiper-item>
 			<form catchsubmit="loginSubmit" catchreset="formReset">
 				<view class="container">
-					<text class="topfooter">———— 登陆即可同步收藏记录 ————</text>
+					<text class="topfooter">———— 登录即可同步收藏记录 ————</text>
 					<view class="usernamestyle">
 						<view class="title">账号：</view>
 						<input placeholder-class="myplaceholder" class="usernameinput" name="account" placeholder="请输入账号" />
@@ -82,7 +82,7 @@
 						<text class="title">密码：</text>
 						<input class="passwordinput" placeholder-class="myplaceholder" password='true' name="password" placeholder="请输入密码" />
 					</view>
-					<button class="submitbut" type="warn" size='mini' formType="submit">登陆</button>
+					<button class="submitbut" type="warn" size='mini' formType="submit">登录</button>
 					<button class="resetbut" size='mini' formType="reset">重置</button>
 					<text class="tips">  左滑注册</text>
 				</view>
@@ -113,6 +113,7 @@
 					</view>
 					<button class="submitbut" type="primary" size='mini' formType="submit">注册</button>
 					<button class="resetbut" size='mini' formType="reset">重置</button>
+					<text class="tips">  右滑登录</text>
 				</view>
 			</form>
 		</swiper-item>

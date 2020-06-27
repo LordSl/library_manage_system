@@ -4,6 +4,7 @@ page {
 }
 
 .header {
+  background-color: #fff;
   padding: 20rpx 30rpx;
   margin-right: 50rpx;
   margin:0px 0px -0px 0px;
@@ -19,7 +20,7 @@ page {
 
 .header text {
   color: rgb(79, 75, 75);
-  font-size: 45rpx;
+  font-size: 42rpx;
   font-weight:bold;
   display:flex;
   justify-content: center;
@@ -29,15 +30,17 @@ page {
   color: rgb(0, 0, 0);
 }
 .title{
-  font-weight:bold;
+  color: #464547;
+  padding-top: 0rpx;
+  font-weight: bolder;
 }
 .index-list-item{
-  background-color:rgb(225, 225, 225);
+  background-color:rgb(255, 255, 255);
 }
 
 .ssss{
-  font-size:13.3px;
-  color:rgb(0, 0, 0);
+  font-size:13px;
+  color:#AAA;
 }
 
 .cover-img{

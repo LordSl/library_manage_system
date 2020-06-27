@@ -96,31 +96,35 @@
   margin-bottom: 20rpx;
   width: 300rpx;
   float: right;
-  font-weight: bold;
+  font-weight: bolder;
   color: #555;
   letter-spacing: 6rpx;
 }
 
 .modifysubmintbut {
+  font-size: 30rpx;
   margin-top: 20rpx;
   margin-bottom: 20rpx;
-  width: 150rpx;
-  margin-left: 130rpx;
+  width: 170rpx;
+  margin-left: 120rpx;
   /* float:right; */
-  font-weight: bold;
+  font-weight: bolder;
   letter-spacing: 6rpx;
   color: #555;
+  text-align: center;
 }
 
 .mondfycancelbut {
+  font-size: 30rpx;
   margin-top: 20rpx;
   margin-bottom: 20rpx;
   margin-left: 40rpx;
-  width: 150rpx;
+  width: 170rpx;
   /* float:right; */
-  font-weight: bold;
+  font-weight: bolder;
   letter-spacing: 6rpx;
   color: #555;
+  text-align: center;
 }
 
 .Collectionfooter {
@@ -147,7 +151,7 @@
 
 .container {
   /* margin-top: 200rpx; */
-  padding-top: 660rpx;
+  padding-top: 500rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -223,7 +227,7 @@
 
 swiper {
   width: 100%;
-  height: 1100rpx;
+  height: 950rpx;
   /* padding-top: 10rpx; */
-  padding-bottom: 15rpx;
+/*   padding-bottom: 15rpx; */
 }

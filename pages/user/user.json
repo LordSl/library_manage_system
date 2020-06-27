@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "用户",
   "usingComponents": {
     "rate":"wechat-miniprogram-rate"
   },

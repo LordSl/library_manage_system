@@ -3,7 +3,6 @@
     "pages/home/home",
     "pages/recomm/recomm",
     "pages/category/category",
-    "pages/index/index",
     "pages/author/author",
     "pages/detail/detail",
     "pages/user/user"
@@ -11,7 +10,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#FFFFFF",
-    "navigationBarTitleText": "豆瓣图书！",
+    "navigationBarTitleText": "豆瓣图书",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
