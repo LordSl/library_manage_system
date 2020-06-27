@@ -1,5 +1,5 @@
 
-const api = require('../../utils/api.js');
+
 
 Page({
   data: {
@@ -176,6 +176,7 @@ Page({
         that.setData(
           {
             pageData:JSON.parse(res.data).content,
+            sourceData:JSON.parse(res.data).content,
             searchResult:"\""+that.data.searchKey+"\"的搜索结果"
           }
           )
